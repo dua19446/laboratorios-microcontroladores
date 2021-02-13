@@ -101,27 +101,32 @@ main:
 loop1:
     BANKSEL PORTA     ;Entra en el banco donde esta PORTA
     CALL delay_small  ;Llamar a la subrutina de delay 
-    BTFSS PORTA, 0    ;Comprobar si el PB esta presionado del pin RA0
+    BTFSC PORTA, 0    ;Comprobar si el PB esta presionado del pin RA0
+    GOTO $-1         ; Ejecuta linea anterio
     CALL cont_mas     ;Llama a la subrutina de incremento del contador 1 
           
 
     CALL delay_small  ;Llamar a la subrutina de delay
     BTFSS PORTA, 1    ;Comprobar si el PB esta presionado del pin RA0
+    GOTO $-1         ; Ejecuta linea anterio
     CALL cont_menos   ;Llama a la subrutina de decremento del contador 1
     
 
     CALL delay_small  ;Llamar a la subrutina de delay
     BTFSS PORTA, 2    ;Comprobar si el PB esta presionado del pin RA0
+    GOTO $-1         ; Ejecuta linea anterio
     CALL cont_mas2    ;Llama a la subrutina de incremento del contador 2
     
 
     CALL delay_small  ;Llamar a la subrutina de delay
-    BTFSS PORTA, 3    ;Comprobar si el PB esta presionado del pin RA0 
+    BTFSS PORTA, 3    ;Comprobar si el PB esta presionado del pin RA0
+    GOTO $-1         ; Ejecuta linea anterio
     CALL cont_menos2  ;Llama a la subrutina de decremento del contador 2
     
     
     CALL delay_small  ;Llamar a la subrutina de delay
     BTFSS PORTA, 4    ;Comprobar si el PB esta presionado del pin RA0
+    GOTO $-1         ; Ejecuta linea anterio
     CALL sumatoria    ;Llama a la subrutina de sumatoria de contadores.
     
     GOTO  loop1 ; loop para siempre  
