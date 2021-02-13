@@ -126,7 +126,7 @@ loop1:
     
     GOTO  loop1 ; loop para siempre  
     
-   
+; -------------------------------DELAYS-----------------------------------------
 delay_big:
     movlw 199		; Valor inicial del contador
     movwf cont_big
@@ -141,7 +141,7 @@ delay_small:
     decfsz cont_small, 1   ; Decrmentar el contador
     goto $-1		   ; Ejecutar linea anterior
     return
-    
+; -----------------------------CONTADORES---------------------------------------    
 cont_mas:
     BTFSS PORTA, 0   ; Verifica si el PB RA0 esta activado 
     GOTO $-1         ; Ejecuta linea anterio
@@ -165,7 +165,7 @@ cont_menos2:
     GOTO $-1         ; Ejecuta linea anterio
     DECF PORTC, 1    ; Decrementa en uno el puerto C
     RETURN
-    
+; ------------------------------SUMATORIO---------------------------------------    
 sumatoria:
     BTFSS PORTA, 4   ; Verifica si el PB RA5 esta activado
     GOTO $-1         ; Ejecuta linea anterio
