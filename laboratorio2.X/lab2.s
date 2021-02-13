@@ -7,7 +7,7 @@
 ; Hardware:    LEDS en el puerto B, C, D y E
 ;
 ; Creado: 9 feb, 2021
-; Última modificación: 1 feb, 2021
+; Última modificación: 13 feb, 2021
 
 ; Assembly source line config statements
 
@@ -35,7 +35,7 @@ PROCESSOR 16F887  ; Se elige el microprocesador a usar
   
 PSECT udata_SHR ;common memory
   cont_small: DS 1 ;1 byte
-  cont_big:   DS 1 
+ 
 
   
 ;Instrucciones de reset
@@ -132,13 +132,6 @@ loop1:
     GOTO  loop1 ; loop para siempre  
     
 ; -------------------------------DELAYS-----------------------------------------
-delay_big:
-    movlw 199		; Valor inicial del contador
-    movwf cont_big
-    call delay_small	; Rutina de delay
-    decfsz cont_big, 1  ; Decrementar el contador
-    goto $-2		; Ejecutar dos lineas atras
-    return
     
 delay_small:
     movlw 249              ; Valor inicial del contador
