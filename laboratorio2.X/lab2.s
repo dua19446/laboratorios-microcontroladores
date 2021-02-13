@@ -11,8 +11,8 @@
 
 ; Assembly source line config statements
 
-PROCESSOR 16F887
-#include <xc.inc>
+PROCESSOR 16F887  ; Se elige el microprocesador a usar
+#include <xc.inc> ; libreria para el procesador 
 
 ; configuratión word 1
   CONFIG  FOSC = XT   ; Oscillator Selection bits (INTOSC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -99,35 +99,34 @@ main:
 ;-------------------------Loop principal(ANTIRREBOTE)---------------------------
 
 loop1:
-    BANKSEL PORTA
-    CALL delay_small
-    BTFSS PORTA, 0
-    CALL cont_mas   ;Antirrebote del PB + del primer contador
+    BANKSEL PORTA     ;Entra en el banco donde esta PORTA
+    CALL delay_small  ;Llamar a la subrutina de delay 
+    BTFSS PORTA, 0    ;Comprobar si el PB esta presionado del pin RA0
+    CALL cont_mas     ;Llama a la subrutina de incremento del contador 1 
           
 
-    CALL delay_small
-    BTFSS PORTA, 1
-    CALL cont_menos ;Antirrebote del PB - del primer contador
+    CALL delay_small  ;Llamar a la subrutina de delay
+    BTFSS PORTA, 1    ;Comprobar si el PB esta presionado del pin RA0
+    CALL cont_menos   ;Llama a la subrutina de decremento del contador 1
     
 
-    CALL delay_small
-    BTFSS PORTA, 2
-    CALL cont_mas2  ;Antirrebote del PB + del del segundo contador
+    CALL delay_small  ;Llamar a la subrutina de delay
+    BTFSS PORTA, 2    ;Comprobar si el PB esta presionado del pin RA0
+    CALL cont_mas2    ;Llama a la subrutina de incremento del contador 2
     
 
-    CALL delay_small
-    BTFSS PORTA, 3
-    CALL cont_menos2 ;Antirrebote del PB - del primer contador
+    CALL delay_small  ;Llamar a la subrutina de delay
+    BTFSS PORTA, 3    ;Comprobar si el PB esta presionado del pin RA0 
+    CALL cont_menos2  ;Llama a la subrutina de decremento del contador 2
     
     
-    CALL delay_small
-    BTFSS PORTA, 4
-    CALL sumatoria
+    CALL delay_small  ;Llamar a la subrutina de delay
+    BTFSS PORTA, 4    ;Comprobar si el PB esta presionado del pin RA0
+    CALL sumatoria    ;Llama a la subrutina de sumatoria de contadores.
     
     GOTO  loop1 ; loop para siempre  
     
    
-    
 delay_big:
     movlw 199		; Valor inicial del contador
     movwf cont_big
@@ -137,48 +136,42 @@ delay_big:
     return
     
 delay_small:
-    movlw 249; Valor inicial del contador
+    movlw 249              ; Valor inicial del contador
     movwf cont_small	
     decfsz cont_small, 1   ; Decrmentar el contador
     goto $-1		   ; Ejecutar linea anterior
     return
     
 cont_mas:
-    BTFSS PORTA, 0
-    GOTO $-1
-    INCF PORTB, 1
-    RETURN
+    BTFSS PORTA, 0   ; Verifica si el PB RA0 esta activado 
+    GOTO $-1         ; Ejecuta linea anterio
+    INCF PORTB, 1    ; Incrementa en uno el puerto B
+    RETURN            
     
 cont_menos:
-    BTFSS PORTA, 1
-    GOTO $-1
-    DECF PORTB, 1
+    BTFSS PORTA, 1   ; Verifica si el PB RA1 esta activado 
+    GOTO $-1         ; Ejecuta linea anterio
+    DECF PORTB, 1    ; Decrementa en uno el puerto B
     RETURN
     
 cont_mas2:
-    BTFSS PORTA, 2
-    GOTO $-1
-    INCF PORTC, 1
+    BTFSS PORTA, 2   ; Verifica si el PB RA3 esta activado
+    GOTO $-1         ; Ejecuta linea anterio
+    INCF PORTC, 1    ; Incrementa en uno el puerto C
     RETURN
     
 cont_menos2:
-    BTFSS PORTA, 3
-    GOTO $-1
-    DECF PORTC, 1
+    BTFSS PORTA, 3   ; Verifica si el PB RA4 esta activado
+    GOTO $-1         ; Ejecuta linea anterio
+    DECF PORTC, 1    ; Decrementa en uno el puerto C
     RETURN
     
 sumatoria:
-    BTFSS PORTA, 4
-    GOTO $-1
-    MOVF PORTB, 0
-    ADDWF PORTC,0 
-    MOVWF PORTD
+    BTFSS PORTA, 4   ; Verifica si el PB RA5 esta activado
+    GOTO $-1         ; Ejecuta linea anterio
+    MOVF PORTB, 0    ; Mueve lo que esta contenido en el puerto B a W
+    ADDWF PORTC,0    ;Suma lo que hay en W con lo que hay en puerto C y se guarda en W
+    MOVWF PORTD      ; Pasa lo que hay en W el puerto D
     RETURN
-
-    
-;exter_osclla:
-;    BANKSEL OSCCON
-;    MOVLW   01001110B
-;    MOVWF   OSCCON
     
 END
