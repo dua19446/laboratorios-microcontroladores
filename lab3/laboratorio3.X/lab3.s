@@ -87,10 +87,10 @@ main:
     BANKSEL PORTC ; Entramos al banco donde esta el puerto C
     CLRF PORTC    ; Se limpia el puerto C
     BANKSEL TRISC ; Entramos al banco donde esta el TRISC
-    BCF TRISC, 0
+    BCF TRISC, 0  ; 
     BCF TRISC, 1
     BCF TRISC, 2
-    BCF TRISC, 3  ; Se ponen los 
+    BCF TRISC, 3  ; Se ponen los primeros cuatro pines del puerto C como salida
         
     BANKSEL PORTD ; Entramos al banco donde esta el puerto D
     CLRF PORTD    ; Se limpia el puerto D
@@ -102,81 +102,81 @@ main:
     BCF TRISD, 4
     BCF TRISD, 5
     BCF TRISD, 6
-    BCF TRISD, 7
+    BCF TRISD, 7 ; Se ponen todos pines del puerto D como salida
        
     BANKSEL PORTE ; Entramos al banco donde esta el puerto E
     CLRF    PORTE ; Se limpia el puerto E
     BANKSEL TRISE ;Entramos al banco donde esta el TRISE
-    BCF     TRISE, 0
+    BCF     TRISE, 0 ; Se pone el primer pin del puerto E como salida
     
     BANKSEL  OPTION_REG ; Entramos al banco donde esta el registro OPTION_REG 
-    MOVLW    11000110B
-    MOVWF    OPTION_REG
-    
-    CALL OSCILADOR
+    MOVLW    11000110B ; Se guarda este numero binario en W
+    MOVWF    OPTION_REG ; Se ingresa lo que hay en W al registro OPTION_REG
+                        ; para el timerO
+    CALL OSCILADOR ; Se llama la subrrutina OSCILADOR 
   
 ;-------------------------------SUBRRUTINAS-------------------------------------
 loop:
-    BANKSEL PORTA
-    BTFSS   PORTA, 0	
-    CALL    INCREMENTAR
+    BANKSEL PORTA ; Entramos al banco donde esta el registro PORTA
+    BTFSS   PORTA, 0 ; Se verfica si el PB en RA0 esta presionado	
+    CALL    INCREMENTAR ; Se llama a la subrrutina INCREMENTAR
     
-    BTFSS   PORTA, 1
-    CALL    DECREMENTAR
+    BTFSS   PORTA, 1 ; Se verfica si el PB en RA1 esta presionado
+    CALL    DECREMENTAR ; Se llama a la subrrutina DECREMENTAR
 
-    btfss   T0IF	
-    goto    $-1
-    call    TIMER0	
-    incf    PORTC
+    btfss   T0IF    ; Se verifica si el bit TOIF esta en 1
+    goto    $-1     ; Devuelve a una instruccion anterior si btfss es falso
+    call    TIMER0  ; Llama a la subrrutina TIMERO si TOIF es 1
+    incf    PORTC   ; Se incrementa en 1 el puerto C
     
-    BCF    PORTE, 0
-    CALL    ALARMA
+    BCF    PORTE, 0 ; se limpia el primer pin del puerto E (LED  de alarma)
+    CALL    ALARMA  ; Se llama a la subrrutina ALARMA                                                                     
    
-    goto loop			
+    goto loop	    ; loop pra siempre	
     
 INCREMENTAR:
-    BTFSS   PORTA, 0
-    GOTO    $-1
-    INCF    CUENTA
-    MOVF    CUENTA, W
-    CALL    TABLA  
-    MOVWF   PORTD
+    BTFSS   PORTA, 0 ; Se verfica si el PB en RA0 esta presionado
+    GOTO    $-1      ; Devuelve a una instruccion anterior si btfss es falso
+    INCF    CUENTA ; Se incrementa en 1 la variable CUENTA si btfss es verdadero
+    MOVF    CUENTA, W ; Se mueve a W lo que hay en la variable CUENTA
+    CALL    TABLA  ; Se llama a la subrrutina TABLA
+    MOVWF   PORTD ; Se mueve al puerto D lo que hay en W
     RETURN
     
 DECREMENTAR:
-    BTFSS   PORTA, 1
-    GOTO    $-1
-    DECF    CUENTA
-    MOVF    CUENTA, W
-    CALL    TABLA  
-    MOVWF   PORTD
+    BTFSS   PORTA, 1 ; Se verfica si el PB en RA1 esta presionado
+    GOTO    $-1      ; Devuelve a una instruccion anterior si btfss es falso
+    DECF    CUENTA ; Se decrementa en 1 la variable CUENTA si btfss es verdadero
+    MOVF    CUENTA, W ; Se mueve a W lo que hay en la variable CUENTA
+    CALL    TABLA  ; Se llama a la subrrutina TABLA
+    MOVWF   PORTD  ; Se mueve al puerto D lo que hay en W
     RETURN
     
 TIMER0:
     movlw   12	    
-    movwf   TMR0
-    bcf	    T0IF    
+    movwf   TMR0; Se ingresa al registro TMR0 el numero desde donde empieza a contar
+    bcf	    T0IF ; Se pone en 0 el bit T0IF   
     return
     
 OSCILADOR:		    
-    BANKSEL OSCCON
+    BANKSEL OSCCON ; Se ingresa al banco donde esta el registro OSCCON
     bcf	    IRCF2   
     bsf	    IRCF1   
-    bcf	    IRCF0   
-    bsf	    SCS	    
+    bcf	    IRCF0  ; Se configura el oscilador a una frecuencia de 250kHz 
+    bsf	    SCS	   ; Se configura para usar el oscilador interno 
     return
 
 ALARMA:
-    MOVF PORTC, W
-    SUBWF CUENTA, W
-    BTFSC STATUS, 2
-    CALL ACTIVACION
+    MOVF PORTC, W ; Se mueve a W lo que hay en el puerto C
+    SUBWF CUENTA, W ; Se resta lo que hay en el puerto C con la variable CUENTA
+    BTFSC STATUS, 2 ; Verifica si el bit 3 de STATUS esta en 0
+    CALL ACTIVACION ; Se llama a la subrrutina ACTIVACION 
     RETURN
 
 ACTIVACION: 
-    CLRF PORTE
-    BSF PORTE, 0
-    CLRF PORTC
+    CLRF PORTE ; Se limpia el puerto E
+    BSF PORTE, 0 ; Se pone en 1 el primer pin del puerto E (donde esta el led)
+    CLRF PORTC; Se limpia el puerto C (se reinicia el contador binario)
     RETURN
     
 END  
