@@ -2496,6 +2496,8 @@ resetVec:
 PSECT code, delta=2, abs
 ORG 100h ; Posicion para el codigo
 
+; se establece la tabla para traducir los numeros y que el numero correspondiente
+; se marque en el display
 TABLA:
     CLRF PCLATH
     BSF PCLATH, 0
@@ -2521,27 +2523,27 @@ TABLA:
 ;-----------------------------Configuracion------------------------------------
 
 main:
-    BANKSEL ANSEL
+    BANKSEL ANSEL ; Entramos al banco donde esta el registro ANSEL
     CLRF ANSEL
-    CLRF ANSELH
+    CLRF ANSELH ; se establecen los pines como entras y salidas digitales
 
-    BANKSEL PORTA
-    CLRF PORTA
-    BANKSEL TRISA
+    BANKSEL PORTA ; Entramos al banco donde esta el puerto A
+    CLRF PORTA ; Se limpa el puerto A
+    BANKSEL TRISA ; Entramos al banco donde esta el TRISA
     BSF TRISA, 0
-    BSF TRISA, 1
+    BSF TRISA, 1 ; Se ponen los dos primeros pines del puerto A como entradas
 
-    BANKSEL PORTC
-    CLRF PORTC
-    BANKSEL TRISC
+    BANKSEL PORTC ; Entramos al banco donde esta el puerto C
+    CLRF PORTC ; Se limpia el puerto C
+    BANKSEL TRISC ; Entramos al banco donde esta el TRISC
     BCF TRISC, 0
     BCF TRISC, 1
     BCF TRISC, 2
-    BCF TRISC, 3
+    BCF TRISC, 3 ; Se ponen los
 
-    BANKSEL PORTD
-    CLRF PORTD
-    BANKSEL TRISD
+    BANKSEL PORTD ; Entramos al banco donde esta el puerto D
+    CLRF PORTD ; Se limpia el puerto D
+    BANKSEL TRISD ; Entramos al banco donde esta el TRISD
     BCF TRISD, 0
     BCF TRISD, 1
     BCF TRISD, 2
@@ -2551,18 +2553,18 @@ main:
     BCF TRISD, 6
     BCF TRISD, 7
 
-    BANKSEL PORTE
-    CLRF PORTE
-    BANKSEL TRISE
+    BANKSEL PORTE ; Entramos al banco donde esta el puerto E
+    CLRF PORTE ; Se limpia el puerto E
+    BANKSEL TRISE ;Entramos al banco donde esta el TRISE
     BCF TRISE, 0
 
-    BANKSEL OPTION_REG
+    BANKSEL OPTION_REG ; Entramos al banco donde esta el registro OPTION_REG
     MOVLW 11000110B
     MOVWF OPTION_REG
 
     CALL OSCILADOR
 
-
+;-------------------------------SUBRRUTINAS-------------------------------------
 loop:
     BANKSEL PORTA
     BTFSS PORTA, 0
