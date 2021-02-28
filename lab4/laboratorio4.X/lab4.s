@@ -60,7 +60,7 @@ ORG 04h
     ISR:
       BTFSC RBIF ; confirma si hubo una interrucion en el puerto B
       CALL INC_DEC ; llama a la subrrutina de la interrupcion del contador binario
-      BTFSC T0IF; verifica si se desvordo el timer0
+      BTFSC T0IF; verifica si se desbordo el timer0
       CALL INT_T0; llama a la subrrutina de interrupcion del tiemer 0
       
     POP: 
@@ -70,7 +70,7 @@ ORG 04h
       SWAPF W_T, W
       RETFIE
     
-; Configuraciones
+
 PSECT code, delta=2, abs
 ORG 100h    ; Posicion para el codigo
 ; se establece la tabla para traducir los numeros y que el numero correspondiente
@@ -129,6 +129,7 @@ main:
     BSF TRISB,0
     BSF TRISB,1 ; Se ponen los dos primeros pines como salida
     
+; subrutinas de cofiguracion
     CALL PULL_UP
     CALL OSCILLATOR
     CALL CONF_IOC
@@ -141,16 +142,17 @@ main:
     CLRF PORTC
     CLRF PORTD ; Se limpian todos los puertos del pic
     BANKSEL PORTA 
-    
+;-----------------------------loop principal------------------------------------
 loop:
     BANKSEL PORTA
-    CALL CONT_DIS
-    CALL INC_T0
-    MOVF CUENTA,W
-    CALL TABLA
-    MOVWF PORTD
+    CALL CONT_DIS ; Se llama a subrrutina para pasar el contador binario al display
+    CALL INC_T0 ; Se llama intruccion para increntar la variable CUENTA 
+    MOVF CUENTA,W; pasa lo que hay en la variable CUENTA a W
+    CALL TABLA ; Se traduce lo que hay en CUENTA para el display de 7s
+    MOVWF PORTD; la traduccion pasa al puerto D donde esta el display de 7s
     GOTO loop
     
+;configuracion de pull-up del puerto B y timer 0
 PULL_UP:
     BANKSEL OPTION_REG
     BCF OPTION_REG, 7 ; Se abilitan los pull-up internos del puerto B
@@ -169,7 +171,8 @@ PULL_UP:
     BCF WPUB,6
     BCF WPUB,7 ;Se estblece que pines del puerto B tendran activado el pull-up
     RETURN 
- 
+    
+;configuracion de oscilador interno
 OSCILLATOR:
     BANKSEL OSCCON ; Se ingresa al banco donde esta el registro OSCCON
     bcf	    IRCF2   
@@ -178,33 +181,36 @@ OSCILLATOR:
     bsf	    SCS	  
     RETURN
     
+;configuracion de pines para abilitacion de interrupt on change
 CONF_IOC:   
     BANKSEL IOCB
     BSF IOCB, 0
     BSF IOCB, 1  ;Se activa el interrupt on change de los dos primeros pines del puerto B 
     RETURN
     
+;abilitacion de interrupciones      
 CONF_INTCON:
     BANKSEL INTCON
-    BSF  GIE
+    BSF  GIE ; Se activan las interrupciones globales 
     BCF  RBIF ; Se colaca la bandera en 0 por precaucion
-    BSF  RBIE
-    BSF  T0IE
-    BCF  T0IF
+    BSF  RBIE ; Permite interrupciones en el puerto B
+    BSF  T0IE ; Permite interrupion del timer 0
+    BCF  T0IF ; limpia bandera de desbordamiento de timer 0
     RETURN
-    
+
+;----------------subrutinas de interrupcion y en loop---------------------------    
 CONT_DIS:
-    MOVF    PORTA, W ; Se mueve a W lo que hay en la variable CUENTA
+    MOVF    PORTA, W ; Se mueve a W lo que hay en el puerto A
     CALL    TABLA  ; Se llama a la subrrutina TABLA
-    MOVWF   PORTC ; Se mueve al puerto D lo que hay en W
+    MOVWF   PORTC ; Se mueve al puerto C lo que hay en W
     RETURN
     
 INC_DEC:
-     BTFSS PORTB,0
-     INCF  PORTA
-     BTFSS PORTB,1
-     DECF  PORTA
-     BCF   RBIF
+     BTFSS PORTB,0 ; verifica si el PB del primer pin del puerto b esta activado
+     INCF  PORTA ;incrementa el puerto A
+     BTFSS PORTB,1 ; verifica si el PB del segundo pin del puerto b esta activado
+     DECF  PORTA; decrementa el puerto A
+     BCF   RBIF ; Se pone en cero la bandera por cambio de estado
      RETURN
      
 TIMER0:
@@ -215,17 +221,17 @@ TIMER0:
     RETURN
     
 INT_T0:
-    INCF   CONT_T0
-    CALL   TIMER0
-    RETURN
+    INCF   CONT_T0; Se incrementa variable interna del timer 0
+    CALL   TIMER0; llama a subrrutina para reiniciar el timer0
+    RETURN; vuelve al isr
     
 INC_T0:
-    MOVLW  50
-    SUBWF  CONT_T0, W
-    BTFSS  STATUS, 2
-    RETURN
-    INCF   CUENTA
-    CLRF   CONT_T0
+    MOVLW  50 ; Determino que se repetira 50 veces 
+    SUBWF  CONT_T0, W ; Se resta lo que esta en la variable con lo que hay en W
+    BTFSS  STATUS, 2; verifica si la bandera zero esta activida
+    RETURN  ; Regresa cuando la bandera zero esta activada 
+    INCF   CUENTA ; Se incrementa la variable que va a pasar al display de 7s
+    CLRF   CONT_T0 ; Se pone en cero la variable interna del timer 0
     RETURN
     
 END
