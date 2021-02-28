@@ -33,7 +33,7 @@ PROCESSOR 16F887  ; Se elige el microprocesador a usar
 
   ;-------------------------------varibles--------------------------------------
   
-PSECT udata_SHR ;common memory
+PSECT udata_shr ;common memory
   CUENTA: DS 2
 ;Instrucciones de reset
 PSECT resVect, class=code, abs, delta=2
