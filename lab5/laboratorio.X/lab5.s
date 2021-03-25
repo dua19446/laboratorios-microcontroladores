@@ -69,10 +69,10 @@ ORG 04h
        MOVWF STATUS_T
        
     ISR:
-      BTFSC RBIF ; confirma si hubo una interrucion en el puerto B
+      BTFSC RBIF   ; confirma si hubo una interrucion en el puerto B
       CALL INC_DEC ; llama a la subrrutina de la interrupcion del contador binario
-      BTFSC T0IF; verifica si se desbordo el timer0
-      CALL INT_T0; llama a la subrrutina de interrupcion del tiemer 0
+      BTFSC T0IF   ; verifica si se desbordo el timer0
+      CALL INT_T0  ; llama a la subrrutina de interrupcion del tiemer 0
       
     POP: 
       SWAPF STATUS_T, W
@@ -138,7 +138,7 @@ main:
     BCF TRISD,4 ; Se colocan los primeros 5 pines del puertoD como salida 
    
     BSF TRISB,0
-    BSF TRISB,1  ; Se ponen los dos primeros pines como salida
+    BSF TRISB,1  ; Se ponen los dos primeros pines como entradas
     
 ; subrutinas de cofiguracion
     CALL PULL_UP
@@ -220,16 +220,16 @@ MOSTRAR_DIS:
     MOVWF DIS ; Se guarda en la variable DIS lo que contiene la variable NIBBLE
     MOVF  NIBBLE+1, W
     CALL  TABLA 
-    MOVWF DIS+1 ; Se guarda en la variable DIS+1 lo que contiene la variable NIBBLE+1
+    MOVWF DIS+1; Se guarda en la variable DIS+1 lo que contiene la variable NIBBLE+1
     MOVF CENTENA, W
     CALL TABLA 
-    MOVWF CENTENA2 ; Se guarda en la variable CENTANA lo que contiene la variable CENTANA2
+    MOVWF CENTENA2; Se guarda en la variable CENTANA lo que contiene la variable CENTANA2
     MOVF DECENA, W
     CALL TABLA 
-    MOVWF DECENA2 ; Se guarda en la variable DECENA lo que contiene la variable DECENA2
+    MOVWF DECENA2; Se guarda en la variable DECENA lo que contiene la variable DECENA2
     MOVF UNIDAD, W
     CALL TABLA 
-    MOVWF UNIDAD2 ; Se guarda en la variable UNIDAD lo que contiene la variable UNIDAD2
+    MOVWF UNIDAD2; Se guarda en la variable UNIDAD lo que contiene la variable UNIDAD2
     RETURN
     
     ;NUEVO
@@ -266,12 +266,12 @@ DIVISION:
     
 ;----------------subrutinas de interrupcion y en loop---------------------------        
 INC_DEC:
-     BTFSS PORTB,0 ; verifica si el PB del primer pin del puerto b esta activado
-     INCF  PORTA ;incrementa el puerto A
-     BTFSS PORTB,1 ; verifica si el PB del segundo pin del puerto b esta activado
-     DECF  PORTA; decrementa el puerto A
-     BCF   RBIF ; Se pone en cero la bandera por cambio de estado
-     RETURN
+    BTFSS PORTB,0 ; verifica si el PB del primer pin del puerto b esta activado
+    INCF  PORTA ;incrementa el puerto A
+    BTFSS PORTB,1 ; verifica si el PB del segundo pin del puerto b esta activado
+    DECF  PORTA; decrementa el puerto A
+    BCF   RBIF ; Se pone en cero la bandera por cambio de estado
+    RETURN
      
 R_TIMER0:
     BANKSEL PORTA
