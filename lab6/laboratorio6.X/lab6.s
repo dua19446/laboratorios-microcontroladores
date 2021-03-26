@@ -40,12 +40,12 @@ PSECT udata_shr ;common memory
   SENAL:     DS 1 ; Se utiliza como indicador para el cambio de display
   NIBBLE:    DS 2 ; Se usa para separar los niblos del puertoA
   DIS:       DS 2 ; Se guarda el valor traducido por la tabla de la variable NIBBLE
-  PARTE1:    DS 1
-  T2:        DS 1
+  PARTE1:    DS 1 ; Variable interna que se incrementa por el timer1
+  T2:        DS 1 ; Bandera para hacer titilar los LED y Display 
     
 ;Instrucciones de reset
 PSECT resVect, class=code, abs, delta=2
-;--------------vector reset----------------
+;----------------------------vector reset---------------------------------------
 ORG 00h        ;posicion 0000h para el reset
 resetVec:
     PAGESEL main
@@ -118,7 +118,7 @@ main:
     
     BCF TRISD,0
     BCF TRISD,1
-    BCF TRISD,2
+    BCF TRISD,2   ; Se ponen los primero 3 pines del puerto D como salida
     
     BANKSEL OPTION_REG
     BCF T0CS ; Se establece que se usara oscilador interno 
@@ -140,28 +140,28 @@ main:
     
     ;Configuracion del timer1
     BANKSEL PIE1
-    BSF TMR1IE
+    BSF TMR1IE ; Se activa la interrupcion del timer1
     BANKSEL PIR1 
-    BCF TMR1IF
+    BCF TMR1IF ; Se limpia la bandera del timer1
     BANKSEL T1CON
-    BSF TMR1ON
-    BCF TMR1CS
-    BSF T1CKPS0
-    BSF T1CKPS1
+    BSF TMR1ON ; Se activa el timer1 
+    BCF TMR1CS ; Reloj interno 
+    BSF T1CKPS0  
+    BSF T1CKPS1 ; pre-scaler de 1:8
     
    ;Configuracion del timer2
     BANKSEL PIE1
-    BSF TMR2IE
+    BSF TMR2IE ; Se activa la interrupcion del timer1
     BANKSEL PIR1 
-    BCF TMR2IF
+    BCF TMR2IF ; Se limpia la bandera del timer1
     BANKSEL T2CON
     BSF TOUTPS3
     BSF TOUTPS2
     BSF TOUTPS1
-    BSF TOUTPS0
-    BSF TMR2ON
+    BSF TOUTPS0 ; Post-sacaler de 1:16
+    BSF TMR2ON ; Se activa el timer1
     BSF T2CKPS1
-    BSF T2CKPS0
+    BSF T2CKPS0 ; Pre-scaler 1:16
     
     BANKSEL PORTA
     CLRF PORTC 
@@ -169,45 +169,47 @@ main:
     BANKSEL PORTA 
     
 loop:
-    CALL SEP_NIBBLE
+    CALL SEP_NIBBLE ;Sirve para separar los nibbles de la variable que se incrementa
     BTFSC T2, 0
-    CALL MOSTRAR_DIS_Y_ON
+    CALL MOSTRAR_DIS_Y_ON ; Se pasan los nibbles traducidos por la tabla a nuevas variables y se prende la LED
     BTFSS T2, 0
-    CALL OFF
+    CALL OFF ; SUBRRUTINA para hacer titilar los display y lED
     GOTO loop; loop por siempre 
-    
+ 
+; Sub-rutina de interrupcion del timer1    
 INC:
     BANKSEL TMR1H
     MOVLW 0xE1
     MOVWF TMR1H
     BANKSEL TMR1L
     MOVLW 0x7C
-    MOVWF TMR1L
-    INCF PARTE1
-    BCF  TMR1IF
+    MOVWF TMR1L ; Se carga el valor adecuado de trabajo a los registros del TMR1
+    INCF PARTE1 ; Se incrementa la variable cada vez.
+    BCF  TMR1IF ; Se limpia la bandera activada.
     RETURN 
        
 TIM2:
     MOVLW 61
-    MOVWF PR2
-    BCF  TMR2IF
+    MOVWF PR2 ; Se carga el valor adecuado de trabajo al PR2
+    BCF  TMR2IF ; Se limpia la bandera activada del timer2
     RETURN
     
+; Sub-rutina de interrupcion del timer2
 TITILEO:
     CALL TIM2
     BTFSC T2, 0
     GOTO APAGADO
 PRENDIDO:
-    BSF T2, 0
+    BSF T2, 0 ; Prende el bit 1 de la variable T2
     RETURN
 APAGADO:
-    BCF T2, 0
+    BCF T2, 0 ; Apaga el bit 1 de la variable T2
     RETURN
     
 OFF:
     CLRF DIS
-    CLRF DIS+1
-    BCF PORTD,2
+    CLRF DIS+1 ; Se apaga por un instante los displays para hacer el titileo
+    BCF PORTD,2 ; Se apaga el LED
     RETURN
 
 SEP_NIBBLE:
@@ -226,7 +228,7 @@ MOSTRAR_DIS_Y_ON:
     MOVF  NIBBLE+1, W
     CALL  TABLA 
     MOVWF DIS+1; Se guarda en la variable DIS+1 lo que contiene la variable NIBBLE+1
-    BSF PORTD, 2
+    BSF PORTD, 2 ; Se prende el LED del puerto D 
     RETURN
     
 R_TIMER0:
@@ -239,21 +241,21 @@ R_TIMER0:
 INT_T0: 
     CALL R_TIMER0
     BCF PORTD, 0
-    BCF PORTD, 1
+    BCF PORTD, 1 ;Se limpian los puertos donde estan conectados los transistores
     BTFSC SENAL, 0
     GOTO DIS2
 DIS1:
     MOVF DIS, W 
-    MOVWF PORTC
-    BSF PORTD,0
+    MOVWF PORTC 
+    BSF PORTD,0;Se pone el valor de DIS en el puerto C y se activa su display respectivo
     GOTO NEXT_DIS
 DIS2:
     MOVF DIS+1, W 
     MOVWF PORTC
-    BSF PORTD,1
+    BSF PORTD,1;Se pone el valor de DIS+1 en el puerto C y se activa su display respectivo
 NEXT_DIS:
     MOVLW 1
-    XORWF SENAL, F
+    XORWF SENAL, F ; Se da el cambio del bit 1 en la variable para hacer el cambio
     RETURN
  
 END
