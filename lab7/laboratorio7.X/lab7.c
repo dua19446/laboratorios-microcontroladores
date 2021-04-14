@@ -38,7 +38,7 @@
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits 
                                 //(Write protection off)
 
-// matriz realizada para la traduccion de los valores del contador para display
+//matriz realizada para la traduccion de los valores del contador para display
 char DISPLAY[10] = {0b00111111,0b00000110,0b01011011,0b01001111,0b01100110,
 0b01101101,0b01111101,0b00000111,0b01111111,0b01101111}; 
 
@@ -64,7 +64,7 @@ void __interrupt() isr(void){
     {   
         PORTEbits.RE2 = 0;//Se apaga el tercer display de 7 seg 
         PORTEbits.RE0 = 1;//Se activa el primer display de 7 seg
-        PORTC = (DISPLAY[CENTENA]);//Se despliega el valor de centena
+        PORTC = (DISPLAY[CENTENA]);//Se despliega el valor de centena traducido
         MULTIPLEXADO = 0b00000001; // se cambia el valor de bandera para pasar
                                    //al siguiente display
         
@@ -72,14 +72,14 @@ void __interrupt() isr(void){
         {                               // la siguientes instrucciones
             PORTEbits.RE0 = 0;//Se apaga el primer display
             PORTEbits.RE1 = 1;// Se enciende el segundo display
-            PORTC = (DISPLAY[DECENA]);//se despliega el valor de decena   
+            PORTC = (DISPLAY[DECENA]);//despliega el valor de decena traducido  
             MULTIPLEXADO = 0b00000010;// se cambia el valor de bandera para 
         }                             // pasar al siguiente display  
         if (MULTIPLEXADO == 0b00000010)// si la bandera tiene este valor se dan
         {                              // la siguientes instrucciones
             PORTEbits.RE1 = 0;//Se apaga el segundo display
             PORTEbits.RE2 = 1;//Se enciende el tercer display
-            PORTC = (DISPLAY[UNIDAD]);//se despliega el valor de unidad
+            PORTC = (DISPLAY[UNIDAD]);//despliega el valor de unidad traducido
             MULTIPLEXADO = 0b00000000;//se limpia la bandera
         }
         INTCONbits.T0IF = 0;// Se limpia la bandera del timer0
