@@ -38,21 +38,46 @@
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits 
                                 //(Write protection off)
 
+char DISPLAY[10] = {0b00111111,0b00000110,0b01011011,0b01001111,0b01100110,
+0b01101101,0b01111101,0b00000111,0b01111111,0b01101111}; 
 //------------------------------------------------------------------------------
 //                                VARIABLES
 //------------------------------------------------------------------------------
-
-
+char COTA; // variable de 8 bits para la cuenta de centas, decenas y unidades.
+int MULTIPLEXADO; // variable de 8 bits para el multiplexado.
+char CENTENA;
+char DECENA;
+char UNIDAD;
+char RESIDUO;
 //------------------------------------------------------------------------------
 //                           PROTOTIPOS FUNCIONES 
 //------------------------------------------------------------------------------
 void setup(void);
+char division(void);
 
 void __interrupt() isr(void){
 
     if (T0IF == 1)
-    {
-        PORTC = PORTC + 1;
+    {   
+        PORTEbits.RE2 = 0;
+        PORTEbits.RE0 = 1;
+        PORTC = (DISPLAY[CENTENA]);
+        MULTIPLEXADO = 0b00000001;
+        
+        if (MULTIPLEXADO == 0b00000001)
+        { 
+            PORTEbits.RE0 = 0;
+            PORTEbits.RE1 = 1;
+            PORTC = (DISPLAY[DECENA]);
+            MULTIPLEXADO = 0b00000010;
+        }
+        if (MULTIPLEXADO == 0b00000010)
+        {
+            PORTEbits.RE1 = 0;
+            PORTEbits.RE2 = 1;
+            PORTC = (DISPLAY[UNIDAD]);
+            MULTIPLEXADO = 0b00000000;
+        }
         INTCONbits.T0IF = 0;
         TMR0 = 255;
     }
@@ -76,9 +101,10 @@ void __interrupt() isr(void){
 void main(void){
     
     setup();
-            
     while (1)
     {
+        COTA = PORTA;
+        division();
     }
     //return;
 }
@@ -92,12 +118,14 @@ void setup(void){
     
     TRISA = 0X00;
     TRISC = 0X00;
+    TRISE = 0X00;
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
     
     PORTA = 0X00;
     PORTC = 0X00;
     PORTB = 0X00;
+    PORTE = 0X00;
     
     // configuracion del oscilador 
     OSCCONbits.IRCF2 = 0;
@@ -125,4 +153,10 @@ void setup(void){
     INTCONbits.T0IE = 1;
     INTCONbits.T0IF = 0;
     
+}
+char division(void){
+    CENTENA = COTA/100;
+    RESIDUO = COTA%100;
+    DECENA = RESIDUO/10;
+    UNIDAD = RESIDUO%10;
 }
