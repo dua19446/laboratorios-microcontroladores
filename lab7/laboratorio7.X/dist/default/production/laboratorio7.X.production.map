@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\laboratorio7.X.production.sym \
   --cmf=dist/default/production\laboratorio7.X.production.cmf -z -Q16F887 \
-  -oC:\Users\duart\AppData\Local\Temp\sd58.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\duart\AppData\Local\Temp\s4d8.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/laboratorio7.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\duart\AppData\Local\Temp\sd58.o \
+  -pfunctab=ENTRY -k C:\Users\duart\AppData\Local\Temp\s4d8.o \
   dist/default/production\laboratorio7.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\duart\AppData\Local\Temp\sd58.o
+C:\Users\duart\AppData\Local\Temp\s4d8.o
                 end_init                              E        E        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -335,7 +335,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 101 in file "lab7.c"
+		line 105 in file "lab7.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -365,7 +365,7 @@ Total ram usage:        1 bytes
 
  *************** function _setup *****************
  Defined at:
-		line 114 in file "lab7.c"
+		line 119 in file "lab7.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -395,7 +395,7 @@ Total ram usage:        0 bytes
 
  *************** function _division *****************
  Defined at:
-		line 157 in file "lab7.c"
+		line 162 in file "lab7.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -491,7 +491,7 @@ Total ram usage:        9 bytes
 
  *************** function _isr *****************
  Defined at:
-		line 58 in file "lab7.c"
+		line 61 in file "lab7.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

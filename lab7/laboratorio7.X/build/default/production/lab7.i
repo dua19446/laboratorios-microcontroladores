@@ -2662,8 +2662,10 @@ typedef uint16_t uintptr_t;
 #pragma config WRT = OFF
 
 
+
 char DISPLAY[10] = {0b00111111,0b00000110,0b01011011,0b01001111,0b01100110,
 0b01101101,0b01111101,0b00000111,0b01111111,0b01101111};
+
 
 
 
@@ -2679,6 +2681,7 @@ char RESIDUO;
 void setup(void);
 char division(void);
 
+
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if (T0IF == 1)
@@ -2687,6 +2690,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
         PORTEbits.RE0 = 1;
         PORTC = (DISPLAY[CENTENA]);
         MULTIPLEXADO = 0b00000001;
+
 
         if (MULTIPLEXADO == 0b00000001)
         {
@@ -2728,6 +2732,7 @@ void main(void){
     while (1)
     {
         COTA = PORTA;
+
         division();
     }
 
