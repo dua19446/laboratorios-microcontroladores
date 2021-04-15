@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\duart\AppData\Local\Temp\s4d8.o
+$C:\Users\duart\AppData\Local\Temp\siqo.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 4 2007 2007 2 2
@@ -79,23 +79,23 @@ STRING 1F0-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\laboratorio7.X.production.o
-11 cinit CODE >515:C:\Users\duart\AppData\Local\Temp\s4d8.s
-11 cinit CODE >518:C:\Users\duart\AppData\Local\Temp\s4d8.s
-11 cinit CODE >565:C:\Users\duart\AppData\Local\Temp\s4d8.s
-12 cinit CODE >566:C:\Users\duart\AppData\Local\Temp\s4d8.s
-13 cinit CODE >567:C:\Users\duart\AppData\Local\Temp\s4d8.s
-14 cinit CODE >568:C:\Users\duart\AppData\Local\Temp\s4d8.s
-15 cinit CODE >569:C:\Users\duart\AppData\Local\Temp\s4d8.s
-16 cinit CODE >570:C:\Users\duart\AppData\Local\Temp\s4d8.s
-17 cinit CODE >571:C:\Users\duart\AppData\Local\Temp\s4d8.s
-18 cinit CODE >572:C:\Users\duart\AppData\Local\Temp\s4d8.s
-19 cinit CODE >573:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1A cinit CODE >574:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1F cinit CODE >578:C:\Users\duart\AppData\Local\Temp\s4d8.s
-20 cinit CODE >579:C:\Users\duart\AppData\Local\Temp\s4d8.s
-21 cinit CODE >585:C:\Users\duart\AppData\Local\Temp\s4d8.s
-21 cinit CODE >587:C:\Users\duart\AppData\Local\Temp\s4d8.s
-22 cinit CODE >588:C:\Users\duart\AppData\Local\Temp\s4d8.s
+11 cinit CODE >515:C:\Users\duart\AppData\Local\Temp\siqo.s
+11 cinit CODE >518:C:\Users\duart\AppData\Local\Temp\siqo.s
+11 cinit CODE >565:C:\Users\duart\AppData\Local\Temp\siqo.s
+12 cinit CODE >566:C:\Users\duart\AppData\Local\Temp\siqo.s
+13 cinit CODE >567:C:\Users\duart\AppData\Local\Temp\siqo.s
+14 cinit CODE >568:C:\Users\duart\AppData\Local\Temp\siqo.s
+15 cinit CODE >569:C:\Users\duart\AppData\Local\Temp\siqo.s
+16 cinit CODE >570:C:\Users\duart\AppData\Local\Temp\siqo.s
+17 cinit CODE >571:C:\Users\duart\AppData\Local\Temp\siqo.s
+18 cinit CODE >572:C:\Users\duart\AppData\Local\Temp\siqo.s
+19 cinit CODE >573:C:\Users\duart\AppData\Local\Temp\siqo.s
+1A cinit CODE >574:C:\Users\duart\AppData\Local\Temp\siqo.s
+1F cinit CODE >578:C:\Users\duart\AppData\Local\Temp\siqo.s
+20 cinit CODE >579:C:\Users\duart\AppData\Local\Temp\siqo.s
+21 cinit CODE >585:C:\Users\duart\AppData\Local\Temp\siqo.s
+21 cinit CODE >587:C:\Users\duart\AppData\Local\Temp\siqo.s
+22 cinit CODE >588:C:\Users\duart\AppData\Local\Temp\siqo.s
 4 intentry CODE >61:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab7\laboratorio7.X\lab7.c
 144 text5 CODE >61:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab7\laboratorio7.X\lab7.c
 144 text5 CODE >63:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab7\laboratorio7.X\lab7.c
@@ -209,23 +209,23 @@ E8 text2 CODE >167:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microc
 1BF maintext CODE >107:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab7\laboratorio7.X\lab7.c
 1C4 maintext CODE >110:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab7\laboratorio7.X\lab7.c
 1CA maintext CODE >112:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab7\laboratorio7.X\lab7.c
-1D3 inittext CODE >539:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1D3 inittext CODE >540:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1D4 inittext CODE >541:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1D5 inittext CODE >542:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1D6 inittext CODE >543:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1D7 inittext CODE >550:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1D7 inittext CODE >551:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1DC inittext CODE >552:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1DD inittext CODE >553:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1DE inittext CODE >554:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1DF inittext CODE >555:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1E0 inittext CODE >556:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1E1 inittext CODE >557:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1E2 inittext CODE >558:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1E3 inittext CODE >559:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1E4 inittext CODE >560:C:\Users\duart\AppData\Local\Temp\s4d8.s
-1E5 inittext CODE >561:C:\Users\duart\AppData\Local\Temp\s4d8.s
+1D3 inittext CODE >539:C:\Users\duart\AppData\Local\Temp\siqo.s
+1D3 inittext CODE >540:C:\Users\duart\AppData\Local\Temp\siqo.s
+1D4 inittext CODE >541:C:\Users\duart\AppData\Local\Temp\siqo.s
+1D5 inittext CODE >542:C:\Users\duart\AppData\Local\Temp\siqo.s
+1D6 inittext CODE >543:C:\Users\duart\AppData\Local\Temp\siqo.s
+1D7 inittext CODE >550:C:\Users\duart\AppData\Local\Temp\siqo.s
+1D7 inittext CODE >551:C:\Users\duart\AppData\Local\Temp\siqo.s
+1DC inittext CODE >552:C:\Users\duart\AppData\Local\Temp\siqo.s
+1DD inittext CODE >553:C:\Users\duart\AppData\Local\Temp\siqo.s
+1DE inittext CODE >554:C:\Users\duart\AppData\Local\Temp\siqo.s
+1DF inittext CODE >555:C:\Users\duart\AppData\Local\Temp\siqo.s
+1E0 inittext CODE >556:C:\Users\duart\AppData\Local\Temp\siqo.s
+1E1 inittext CODE >557:C:\Users\duart\AppData\Local\Temp\siqo.s
+1E2 inittext CODE >558:C:\Users\duart\AppData\Local\Temp\siqo.s
+1E3 inittext CODE >559:C:\Users\duart\AppData\Local\Temp\siqo.s
+1E4 inittext CODE >560:C:\Users\duart\AppData\Local\Temp\siqo.s
+1E5 inittext CODE >561:C:\Users\duart\AppData\Local\Temp\siqo.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -255,10 +255,10 @@ _RBIF 58 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 _T0IF 5A 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\s4d8.o
+___sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\siqo.o
 _main 37E 0 CODE 0 maintext dist/default/production\laboratorio7.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
-start 1C 0 CODE 0 init C:\Users\duart\AppData\Local\Temp\s4d8.o
+start 1C 0 CODE 0 init C:\Users\duart\AppData\Local\Temp\siqo.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
@@ -268,12 +268,12 @@ __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 ___awmod@sign 2B 0 BANK0 1 cstackBANK0 dist/default/production\laboratorio7.X.production.o
 __LnvCOMMON 0 0 ABS 0 nvCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s4d8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s4d8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s4d8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s4d8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s4d8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s4d8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\siqo.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\siqo.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\siqo.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\siqo.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\siqo.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\siqo.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _division 11C 0 CODE 0 text2 dist/default/production\laboratorio7.X.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
@@ -290,8 +290,8 @@ __LnvBANK0 0 0 ABS 0 nvBANK0 -
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio7.X.production.o
 __end_of___awdiv 11C 0 CODE 0 text4 dist/default/production\laboratorio7.X.production.o
 __end_of___awmod 288 0 CODE 0 text3 dist/default/production\laboratorio7.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\s4d8.o
-___stacklo 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\s4d8.o
+___stackhi 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\siqo.o
+___stacklo 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\siqo.o
 _DISPLAY 20 0 BANK0 1 dataBANK0 dist/default/production\laboratorio7.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 __HnvCOMMON 0 0 ABS 0 nvCOMMON -
@@ -299,7 +299,7 @@ start_initialization 22 0 CODE 0 cinit dist/default/production\laboratorio7.X.pr
 _TRISBbits 86 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 __pcstackBANK0 2A 0 BANK0 1 cstackBANK0 dist/default/production\laboratorio7.X.production.o
 _UNIDAD 33 0 BANK0 1 nvBANK0 dist/default/production\laboratorio7.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\s4d8.o
+___int_sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\siqo.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -350,7 +350,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\laboratorio7.X.production.o
 __end_of_isr 330 0 CODE 0 text5 dist/default/production\laboratorio7.X.production.o
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\duart\AppData\Local\Temp\s4d8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\duart\AppData\Local\Temp\siqo.o
 __pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\laboratorio7.X.production.o
 ___awmod@counter 2A 0 BANK0 1 cstackBANK0 dist/default/production\laboratorio7.X.production.o
 ___awdiv 4A 0 CODE 0 text4 dist/default/production\laboratorio7.X.production.o

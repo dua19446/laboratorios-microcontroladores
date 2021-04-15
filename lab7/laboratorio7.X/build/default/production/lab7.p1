@@ -662,7 +662,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "155
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "156
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[e = . . _INTCONbits 0 0 -> -> 1 `i `uc ]
 "157
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 "158

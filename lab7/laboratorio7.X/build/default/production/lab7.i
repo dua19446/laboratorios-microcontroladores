@@ -2777,7 +2777,7 @@ void setup(void){
 
 
     INTCONbits.GIE = 1;
-    INTCONbits.RBIF = 0;
+    INTCONbits.RBIF = 1;
     INTCONbits.RBIE = 1;
     INTCONbits.T0IE = 1;
     INTCONbits.T0IF = 0;
