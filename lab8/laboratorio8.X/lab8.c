@@ -1,13 +1,14 @@
 /*
- * File:   lab7.c
+ * File:   lab8.c
  * Author: duart
  *
- * Created on 12 de abril de 2021, 03:41 PM
+ * Created on 18 de abril de 2021, 11:25 PM
  */
 
 
 #include <xc.h>
 #include <stdint.h>
+
 //------------------------------------------------------------------------------
 //                         BITS DE CONFIGURACION
 //------------------------------------------------------------------------------
@@ -38,6 +39,9 @@
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits 
                                 //(Write protection off)
 
+#define _XTAL_FREQ 4000000//Para usar la funcion de 'delay'
+
+
 //matriz realizada para la traduccion de los valores del contador para display
 char DISPLAY[10] = {0b00111111,0b00000110,0b01011011,0b01001111,0b01100110,
 0b01101101,0b01111101,0b00000111,0b01111111,0b01101111}; 
@@ -45,19 +49,21 @@ char DISPLAY[10] = {0b00111111,0b00000110,0b01011011,0b01001111,0b01100110,
 //------------------------------------------------------------------------------
 //                                VARIABLES
 //------------------------------------------------------------------------------
-char COTA; // variable donde se guarda el valor del contador.
 int MULTIPLEXADO; // variable de 8 bits para el multiplexado.
-char CENTENA; //variable para la asignacion de la centena del contador
-char DECENA; //variable para la asignacion de la decena del contador
-char UNIDAD; //variable para la asignacion de la unidad del contador
+char GUARDADO; //variable donde se guarda ADRESH para hacer la division
+               //y que se muestre en el display para el canal AN1
+char CENTENA; //variable para la asignacion de la centena del canal AN1
+char DECENA; //variable para la asignacion de la decena del canal AN1
+char UNIDAD; //variable para la asignacion de la unidad del canal AN1
 char RESIDUO; //variable hecha para el residuo de la division entre 100
+
 //------------------------------------------------------------------------------
 //                          PROTOTIPOS FUNCIONES 
 //------------------------------------------------------------------------------
 void setup(void); 
-char division(void);//se mencionan las funciones que se tienen 
+void division(void);//se mencionan las funciones que se tienen 
 
-// Se establece el vector de interrupcion 
+// Se establece el vector de interrupcion
 void __interrupt() isr(void){
 
     if (T0IF == 1) // Interrupcion por la bandera del timer0
@@ -84,48 +90,48 @@ void __interrupt() isr(void){
         }
         INTCONbits.T0IF = 0;// Se limpia la bandera del timer0
         TMR0 = 255;//Se carga valor al timer0 para que trabaje a 5ms
-    }
+    }  
     
-    if (RBIF == 1)// Interrupcion por la bandera del puerto B
+    if (PIR1bits.ADIF == 1)//Interrupcion del ADC 
     {
-        if (PORTBbits.RB0 == 0)
+        if (ADCON0bits.CHS == 1)//si se esta en este canal que haga lo siguiente
         {
-            PORTA = PORTA + 1;// Si se apacha el primer boton se incrementa el 
-        }                     // el puerto A
-        if (PORTBbits.RB1 == 0)
-        {
-            PORTA = PORTA - 1;// Si se apacha el segundo boton se decrementa el 
-        }                     // el puerto A
-        INTCONbits.RBIF = 0;// Se limpia la bandera de la interrupcion del 
-    }                       // puerto B
+            ADCON0bits.CHS = 0;//Se cambia el valor del canal
+            GUARDADO = ADRESH;// Se guarda el valor de ADRESH en una variable.
+        }                     // para luego realizar la division. 
+        else {
+            ADCON0bits.CHS = 1;//Se cambia el valor de canal 
+            PORTB = ADRESH;}// Se guarda el valor de ADRESH en el puerto B
+                            // para que se muestre en los 8 leds
+        __delay_us(50);//tiempo necesario para el cambio de canal 
+        PIR1bits.ADIF = 0;//Se apaga el valor de la bandera de interrupcion ADC
+    }
 }
 //------------------------------------------------------------------------------
 //                             CICLO PRINCIPAL 
 //------------------------------------------------------------------------------
-void main(void){
-    
+void main(void) {
     setup();// Se llama a la funcion setup para configuracion de I/O
+    
     while (1) // Se implemta el loop
     {
-        COTA = PORTA;// Se le asigna el valor del puerto A a la varible COTA
-                     // para realizar la division del contador.
+        ADCON0bits.GO = 1; //para empezar de nuevo la ejecucion del ADC
         division();// se llama la subrrutina para hacer la division de centena,
     }              // decena y unidades del contador.
-    //return;
 }
 //------------------------------------------------------------------------------
 //                             CONFIGURACIONES
 //------------------------------------------------------------------------------
 void setup(void){
     // configuracion de puertos 
-    ANSEL = 0X00;
+    ANSEL = 0b00000011; //setea AN0 y AN1
     ANSELH = 0X00;//se establecen los pines como entras y salidas digitales
     
-    TRISA = 0X00;
+    TRISB = 0X00;
     TRISC = 0X00;
     TRISE = 0X00;// Se establecen los puertos A, C y E como salidas 
-    TRISBbits.TRISB0 = 1;
-    TRISBbits.TRISB1 = 1;//Se ponen como entradas los primeros pines del puertoB
+    TRISAbits.TRISA0 = 1;
+    TRISAbits.TRISA1 = 1;//Se ponen como entradas los primeros pines del puertoB
     
     PORTA = 0X00;
     PORTC = 0X00;
@@ -135,7 +141,7 @@ void setup(void){
     // configuracion del oscilador 
     OSCCONbits.IRCF2 = 0;
     OSCCONbits.IRCF1 = 1;
-    OSCCONbits.IRCF0 = 0; //Se configura el oscilador a una frecuencia de 250kHz
+    OSCCONbits.IRCF0 = 0; //Se configura el oscilador a una frecuencia de 250KHz
     OSCCONbits.SCS = 1;
     
     // configuracion del timer 0 y pull-up internos
@@ -145,23 +151,32 @@ void setup(void){
     OPTION_REGbits.PS1 = 1;
     OPTION_REGbits.PS0 = 1;
     
+    // configuracion del ADC
+  
+    ADCON0bits.CHS = 0; // CANAL AN0
     
-    OPTION_REGbits.nRBPU = 0;
-    WPUB = 0b00000011;
-    IOCBbits.IOCB0 = 1;
-    IOCBbits.IOCB1 = 1;
+    ADCON0bits.ADCS1 = 1;
+    ADCON0bits.ADCS0 = 1; //Frc que trabaja con el oscilador interno
+    
+    ADCON0bits.ADON = 1; //Activa el modulo ADC
+    
+    ADCON1bits.ADFM = 0; // justificacion a la izquierda.
+    ADCON1bits.VCFG0 = 0;
+    ADCON1bits.VCFG1 = 0;  //Vss y Vcc
     
     // configuracion de interrupciones 
     INTCONbits.GIE = 1;
-    INTCONbits.RBIF = 1;
-    INTCONbits.RBIE = 1;
+    PIR1bits.ADIF = 0; // BANDERA de interrupcion del ADC
+    PIE1bits.ADIE = 1; // Habilita la interrupcion del ADC
+    INTCONbits.PEIE = 1; // Interrupcion de los perifericos
     INTCONbits.T0IE = 1;
     INTCONbits.T0IF = 0;
     
 }
-char division(void){
-    CENTENA = COTA/100;//Se almacena en centena lo que resulta dividir entre 100
-    RESIDUO = COTA%100;//Se almacena el residuo de la division entre 100 
+void division(void){
+    CENTENA = GUARDADO/100;//Se almacena en centena lo que resulta dividir entre 
+                           //100
+    RESIDUO = GUARDADO%100;//Se almacena el residuo de la division entre 100 
     DECENA = RESIDUO/10;//Se divide entre 10 lo que quedo en residuo y se guarda
     UNIDAD = RESIDUO%10;//Se guarda el residuo de la division entre 10
-}  
+}
