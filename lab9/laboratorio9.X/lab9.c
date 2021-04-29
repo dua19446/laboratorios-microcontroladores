@@ -90,7 +90,7 @@ void setup(void){
     ANSEL = 0b00000011; //setea AN0 y AN1
     ANSELH = 0X00;//se establecen los pines como entras y salidas digitales
     
-    TRISA = 0xff;
+    TRISA = 0xff; // Se pone todo el puerto A como entrada.
     
     PORTA = 0X00;
     PORTC = 0X00;//Se limpian los puertos utilizados
