@@ -1,6 +1,6 @@
 /*
  * File:   lab8.c
- * Author: duart
+ * Author: Alejandro Duarte
  *
  * Created on 18 de abril de 2021, 11:25 PM
  */
