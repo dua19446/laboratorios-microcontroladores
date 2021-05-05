@@ -7,6 +7,7 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include <stdio.h>
 
 //------------------------------------------------------------------------------
 //                         BITS DE CONFIGURACION
@@ -48,16 +49,18 @@
 //                          PROTOTIPOS FUNCIONES 
 //------------------------------------------------------------------------------
 void setup(void);
+void menu(void);
+void putch(char data);
+void receptar(void);
 
 void __interrupt() isr(void){
-    if (PIR1bits.TXIF){
-        TXREG = 64;
-        TXREG = 98;
-    }
-    __delay_ms(50);
-    if (PIR1bits.RCIF){
-        PORTB = RCREG;
-    }
+//    if (PIR1bits.TXIF){
+//        TXREG = 56;
+//    }
+//    __delay_ms(50);
+//    if (PIR1bits.RCIF){
+//        PORTB = RCREG;
+//    }
 }
 //------------------------------------------------------------------------------
 //                             CICLO PRINCIPAL 
@@ -67,7 +70,8 @@ void main(void) {
     
     while (1) // Se implemta el loop
     {
-       
+        menu();
+        receptar();
     }            
 }
 //------------------------------------------------------------------------------
@@ -79,12 +83,10 @@ void setup(void){
     ANSELH = 0X00;//se establecen los pines como entras y salidas digitales
     
     TRISA = 0X00;
-    TRISB = 0X00;
-    TRISD = 0X00;// Se establecen los puertos A, B y D como salidas 
+    TRISB = 0X00;// Se establecen los puertos A, B y D como salidas 
     
     PORTA = 0X00;
-    PORTB = 0X00;
-    PORTD = 0X00;//Se limpian los puertos utilizados
+    PORTB = 0X00;//Se limpian los puertos utilizados
     
     // configuracion del oscilador 
     OSCCONbits.IRCF2 = 1;
@@ -110,8 +112,46 @@ void setup(void){
     // configuracion de interrupciones 
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
-    PIR1bits.RCIF = 0; // BANDERA de interrupcion del receptor
-    PIE1bits.RCIE = 1; // Habilita la interrupcion del receptor
-    PIE1bits.TXIE = 1;
-    PIR1bits.TXIF = 0;
+//    PIR1bits.RCIF = 0; // BANDERA de interrupcion del receptor
+//    PIE1bits.RCIE = 1; // Habilita la interrupcion del receptor
+//    PIE1bits.TXIE = 1;
+//    PIR1bits.TXIF = 0;
+}
+//------------------------------------------------------------------------------
+//                               FUNCIONES
+//------------------------------------------------------------------------------
+void menu(void){
+     __delay_ms(50);
+     printf("\rQue accion desea ejecutar? \r");
+     __delay_ms(50);
+     printf("\r(1) Desplegar cadena de caracteres \r");
+     __delay_ms(50);
+     printf("(2) Cambiar PORTA \r");
+     __delay_ms(50);
+     printf("(3) Cambiar PORTB \r");
+}
+void putch(char data){
+    while (TXIF == 0);
+    TXREG = data;
+}
+void receptar(void){
+    while(RCIF == 0);
+    char res = RCREG;
+    
+    if (res == '1'){
+        __delay_ms(50);
+        printf("\r Ya salio la primera parte. \r");
+    }
+    if (res == '2'){
+        __delay_ms(50);
+        printf("\r Por favor, ingrese un caracter. \r");
+        while(RCIF == 0);
+        PORTA = RCREG;
+    }
+    if (res == '3'){
+        __delay_ms(50);
+        printf("\r Por favor, ingrese un caracter. \r");
+        while(RCIF == 0);
+        PORTB = RCREG;
+    }
 }
