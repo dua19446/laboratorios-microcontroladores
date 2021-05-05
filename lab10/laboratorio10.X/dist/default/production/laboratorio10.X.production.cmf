@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\duart\AppData\Local\Temp\se6s.o
+$C:\Users\duart\AppData\Local\Temp\soqo.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -74,78 +74,78 @@ STRING 1CD-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\laboratorio10.X.production.o
-F cinit CODE >679:C:\Users\duart\AppData\Local\Temp\se6s.s
-F cinit CODE >682:C:\Users\duart\AppData\Local\Temp\se6s.s
-F cinit CODE >688:C:\Users\duart\AppData\Local\Temp\se6s.s
-F cinit CODE >690:C:\Users\duart\AppData\Local\Temp\se6s.s
-10 cinit CODE >691:C:\Users\duart\AppData\Local\Temp\se6s.s
+F cinit CODE >679:C:\Users\duart\AppData\Local\Temp\soqo.s
+F cinit CODE >682:C:\Users\duart\AppData\Local\Temp\soqo.s
+F cinit CODE >688:C:\Users\duart\AppData\Local\Temp\soqo.s
+F cinit CODE >690:C:\Users\duart\AppData\Local\Temp\soqo.s
+10 cinit CODE >691:C:\Users\duart\AppData\Local\Temp\soqo.s
 4 intentry CODE >56:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 1C6 text6 CODE >56:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1C6 text6 CODE >64:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1BC text5 CODE >133:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1BD text5 CODE >134:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1C3 text5 CODE >135:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1C5 text5 CODE >136:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1C6 text6 CODE >58:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1BC text5 CODE >123:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1BD text5 CODE >124:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1C3 text5 CODE >125:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1C5 text5 CODE >126:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 18A text4 CODE >477:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 18B text4 CODE >550:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 18F text4 CODE >553:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 190 text4 CODE >558:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 196 text4 CODE >553:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 1A8 text4 CODE >1567:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-122 text3 CODE >123:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-122 text3 CODE >124:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-12B text3 CODE >125:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-131 text3 CODE >126:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-13A text3 CODE >127:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-140 text3 CODE >128:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-149 text3 CODE >129:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-14F text3 CODE >130:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-158 text3 CODE >131:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-15E text3 CODE >132:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-C8 text2 CODE >137:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-C8 text2 CODE >138:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-CE text2 CODE >139:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-D2 text2 CODE >141:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-D8 text2 CODE >142:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-E1 text2 CODE >143:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-E7 text2 CODE >145:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-ED text2 CODE >146:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-F6 text2 CODE >147:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-FC text2 CODE >148:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-102 text2 CODE >149:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-104 text2 CODE >151:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-10A text2 CODE >152:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-113 text2 CODE >153:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-119 text2 CODE >154:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-11F text2 CODE >155:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-121 text2 CODE >157:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-15F text1 CODE >80:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-15F text1 CODE >82:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-162 text1 CODE >83:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-163 text1 CODE >85:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-166 text1 CODE >86:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-167 text1 CODE >88:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-16A text1 CODE >89:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-16B text1 CODE >92:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-16E text1 CODE >93:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-16F text1 CODE >94:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-170 text1 CODE >95:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-171 text1 CODE >98:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-172 text1 CODE >99:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-175 text1 CODE >101:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-178 text1 CODE >102:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-17B text1 CODE >103:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-17C text1 CODE >105:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-17F text1 CODE >107:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-182 text1 CODE >109:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-186 text1 CODE >110:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-187 text1 CODE >113:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-188 text1 CODE >114:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-189 text1 CODE >119:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1A9 maintext CODE >68:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1A9 maintext CODE >69:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1AE maintext CODE >73:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
-1B3 maintext CODE >74:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+122 text3 CODE >113:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+122 text3 CODE >114:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+12B text3 CODE >115:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+131 text3 CODE >116:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+13A text3 CODE >117:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+140 text3 CODE >118:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+149 text3 CODE >119:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+14F text3 CODE >120:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+158 text3 CODE >121:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+15E text3 CODE >122:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+C8 text2 CODE >127:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+C8 text2 CODE >128:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+CE text2 CODE >129:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+D2 text2 CODE >131:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+D8 text2 CODE >132:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+E1 text2 CODE >133:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+E7 text2 CODE >135:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+ED text2 CODE >136:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+F6 text2 CODE >137:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+FC text2 CODE >138:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+102 text2 CODE >139:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+104 text2 CODE >141:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+10A text2 CODE >142:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+113 text2 CODE >143:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+119 text2 CODE >144:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+11F text2 CODE >145:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+121 text2 CODE >147:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+15F text1 CODE >74:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+15F text1 CODE >76:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+162 text1 CODE >77:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+163 text1 CODE >79:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+166 text1 CODE >80:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+167 text1 CODE >82:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+16A text1 CODE >83:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+16B text1 CODE >86:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+16E text1 CODE >87:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+16F text1 CODE >88:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+170 text1 CODE >89:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+171 text1 CODE >92:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+172 text1 CODE >93:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+175 text1 CODE >95:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+178 text1 CODE >96:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+17B text1 CODE >97:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+17C text1 CODE >99:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+17F text1 CODE >101:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+182 text1 CODE >103:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+186 text1 CODE >104:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+187 text1 CODE >107:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+188 text1 CODE >108:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+189 text1 CODE >109:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1A9 maintext CODE >62:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1A9 maintext CODE >63:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1AE maintext CODE >67:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+1B3 maintext CODE >68:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -169,22 +169,22 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _RCIF 65 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\se6s.o
+___sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\soqo.o
 _main 352 0 CODE 0 maintext dist/default/production\laboratorio10.X.production.o
 _menu 244 0 CODE 0 text3 dist/default/production\laboratorio10.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
-start 18 0 CODE 0 init C:\Users\duart\AppData\Local\Temp\se6s.o
+start 18 0 CODE 0 init C:\Users\duart\AppData\Local\Temp\soqo.o
 __size_of_main 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __size_of_menu 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 printf@c 75 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
 printf@f 76 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\se6s.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\se6s.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\se6s.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\se6s.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\se6s.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\se6s.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\soqo.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\soqo.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\soqo.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\soqo.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\soqo.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\soqo.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -192,15 +192,15 @@ __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ?_printf 70 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\se6s.o
-___stacklo 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\se6s.o
+___stackhi 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\soqo.o
+___stacklo 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\soqo.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __size_of_putch 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\laboratorio10.X.production.o
 _SPBRGH 9A 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __end_of_printf 352 0 CODE 0 text4 dist/default/production\laboratorio10.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\se6s.o
+___int_sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\soqo.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -211,7 +211,6 @@ __stringbase 30 0 STRING 0 strings dist/default/production\laboratorio10.X.produ
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
-receptar@res 79 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -246,7 +245,7 @@ __end_of_isr 39A 0 CODE 0 text6 dist/default/production\laboratorio10.X.producti
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 26 0 STRING 0 strings dist/default/production\laboratorio10.X.production.o
 __size_of_receptar 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\duart\AppData\Local\Temp\se6s.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\duart\AppData\Local\Temp\soqo.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __pmaintext 352 0 CODE 0 maintext dist/default/production\laboratorio10.X.production.o
 __Lcommon 0 0 ABS 0 common -
@@ -263,6 +262,7 @@ __end_of_receptar 244 0 CODE 0 text2 dist/default/production\laboratorio10.X.pro
 __Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 printf@ap 74 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
+receptar@entregado 79 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
 end_of_initialization 1E 0 CODE 0 cinit dist/default/production\laboratorio10.X.production.o
 __Hintentry 18 0 CODE 0 intentry -
 __size_of_printf 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o

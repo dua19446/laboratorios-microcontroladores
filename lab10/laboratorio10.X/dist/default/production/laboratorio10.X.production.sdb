@@ -15,15 +15,15 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "56 C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 [v _isr isr `II(v  1 e 1 0 ]
-"68
+"62
 [v _main main `(v  1 e 1 0 ]
-"80
+"74
 [v _setup setup `(v  1 e 1 0 ]
-"123
+"113
 [v _menu menu `(v  1 e 1 0 ]
-"133
+"123
 [v _putch putch `(v  1 e 1 0 ]
-"137
+"127
 [v _receptar receptar `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -133,27 +133,27 @@
 [v _RCIF RCIF `VEb  1 e 0 @101 ]
 "4544
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"68 C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+"62 C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 [v _main main `(v  1 e 1 0 ]
 {
-"76
+"70
 } 0
-"80
+"74
 [v _setup setup `(v  1 e 1 0 ]
 {
-"119
+"109
 } 0
-"137
+"127
 [v _receptar receptar `(v  1 e 1 0 ]
 {
-"139
-[v receptar@res res `uc  1 a 1 9 ]
-"157
+"129
+[v receptar@entregado entregado `uc  1 a 1 9 ]
+"147
 } 0
-"123
+"113
 [v _menu menu `(v  1 e 1 0 ]
 {
-"132
+"122
 } 0
 "477 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -169,16 +169,16 @@
 [v printf@f f `*.24DCuc  1 a 1 6 ]
 "1567
 } 0
-"133 C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
+"123 C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 [v _putch putch `(v  1 e 1 0 ]
 {
 [v putch@data data `uc  1 a 1 wreg ]
 [v putch@data data `uc  1 a 1 wreg ]
 [v putch@data data `uc  1 a 1 2 ]
-"136
+"126
 } 0
 "56
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"64
+"58
 } 0

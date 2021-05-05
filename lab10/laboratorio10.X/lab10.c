@@ -54,13 +54,7 @@ void putch(char data);
 void receptar(void);
 
 void __interrupt() isr(void){
-//    if (PIR1bits.TXIF){
-//        TXREG = 56;
-//    }
-//    __delay_ms(50);
-//    if (PIR1bits.RCIF){
-//        PORTB = RCREG;
-//    }
+
 }
 //------------------------------------------------------------------------------
 //                             CICLO PRINCIPAL 
@@ -112,10 +106,6 @@ void setup(void){
     // configuracion de interrupciones 
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
-//    PIR1bits.RCIF = 0; // BANDERA de interrupcion del receptor
-//    PIE1bits.RCIE = 1; // Habilita la interrupcion del receptor
-//    PIE1bits.TXIE = 1;
-//    PIR1bits.TXIF = 0;
 }
 //------------------------------------------------------------------------------
 //                               FUNCIONES
@@ -136,19 +126,19 @@ void putch(char data){
 }
 void receptar(void){
     while(RCIF == 0);
-    char res = RCREG;
+    char entregado = RCREG;
     
-    if (res == '1'){
+    if (entregado == '1'){
         __delay_ms(50);
         printf("\r Ya salio la primera parte. \r");
     }
-    if (res == '2'){
+    if (entregado == '2'){
         __delay_ms(50);
         printf("\r Por favor, ingrese un caracter. \r");
         while(RCIF == 0);
         PORTA = RCREG;
     }
-    if (res == '3'){
+    if (entregado == '3'){
         __delay_ms(50);
         printf("\r Por favor, ingrese un caracter. \r");
         while(RCIF == 0);

@@ -2767,12 +2767,6 @@ void receptar(void);
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
-
-
-
-
-
-
 }
 
 
@@ -2824,10 +2818,6 @@ void setup(void){
 
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
-
-
-
-
 }
 
 
@@ -2848,19 +2838,19 @@ void putch(char data){
 }
 void receptar(void){
     while(RCIF == 0);
-    char res = RCREG;
+    char entregado = RCREG;
 
-    if (res == '1'){
+    if (entregado == '1'){
         _delay((unsigned long)((50)*(4000000/4000.0)));
         printf("\r Ya salio la primera parte. \r");
     }
-    if (res == '2'){
+    if (entregado == '2'){
         _delay((unsigned long)((50)*(4000000/4000.0)));
         printf("\r Por favor, ingrese un caracter. \r");
         while(RCIF == 0);
         PORTA = RCREG;
     }
-    if (res == '3'){
+    if (entregado == '3'){
         _delay((unsigned long)((50)*(4000000/4000.0)));
         printf("\r Por favor, ingrese un caracter. \r");
         while(RCIF == 0);
