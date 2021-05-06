@@ -395,257 +395,257 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [p x WRT  =  OFF         ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"56
-[; ;lab10.c: 56: void __attribute__((picinterrupt(("")))) isr(void){
+"57
+[; ;lab10.c: 57: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"58
-[; ;lab10.c: 58: }
+"59
+[; ;lab10.c: 59: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"62
-[; ;lab10.c: 62: void main(void) {
+"63
+[; ;lab10.c: 63: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"63
-[; ;lab10.c: 63:     setup();
+"64
+[; ;lab10.c: 64:     setup();
 [e ( _setup ..  ]
-"65
-[; ;lab10.c: 65:     while (1)
-[e :U 142 ]
 "66
-[; ;lab10.c: 66:     {
-{
+[; ;lab10.c: 66:     while (1)
+[e :U 142 ]
 "67
-[; ;lab10.c: 67:         menu();
-[e ( _menu ..  ]
+[; ;lab10.c: 67:     {
+{
 "68
-[; ;lab10.c: 68:         receptar();
-[e ( _receptar ..  ]
+[; ;lab10.c: 68:         menu();
+[e ( _menu ..  ]
 "69
-[; ;lab10.c: 69:     }
+[; ;lab10.c: 69:         receptar();
+[e ( _receptar ..  ]
+"71
+[; ;lab10.c: 71:     }
 }
 [e :U 141 ]
 [e $U 142  ]
 [e :U 143 ]
-"70
-[; ;lab10.c: 70: }
+"72
+[; ;lab10.c: 72: }
 [e :UE 140 ]
 }
-"74
-[; ;lab10.c: 74: void setup(void){
+"76
+[; ;lab10.c: 76: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"76
-[; ;lab10.c: 76:     ANSEL = 0X00;
+"78
+[; ;lab10.c: 78:     ANSEL = 0X00;
 [e = _ANSEL -> -> 0 `i `uc ]
-"77
-[; ;lab10.c: 77:     ANSELH = 0X00;
-[e = _ANSELH -> -> 0 `i `uc ]
 "79
-[; ;lab10.c: 79:     TRISA = 0X00;
+[; ;lab10.c: 79:     ANSELH = 0X00;
+[e = _ANSELH -> -> 0 `i `uc ]
+"81
+[; ;lab10.c: 81:     TRISA = 0X00;
 [e = _TRISA -> -> 0 `i `uc ]
-"80
-[; ;lab10.c: 80:     TRISB = 0X00;
-[e = _TRISB -> -> 0 `i `uc ]
 "82
-[; ;lab10.c: 82:     PORTA = 0X00;
+[; ;lab10.c: 82:     TRISB = 0X00;
+[e = _TRISB -> -> 0 `i `uc ]
+"84
+[; ;lab10.c: 84:     PORTA = 0X00;
 [e = _PORTA -> -> 0 `i `uc ]
-"83
-[; ;lab10.c: 83:     PORTB = 0X00;
+"85
+[; ;lab10.c: 85:     PORTB = 0X00;
 [e = _PORTB -> -> 0 `i `uc ]
-"86
-[; ;lab10.c: 86:     OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"87
-[; ;lab10.c: 87:     OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
 "88
-[; ;lab10.c: 88:     OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
+[; ;lab10.c: 88:     OSCCONbits.IRCF2 = 1;
+[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
 "89
-[; ;lab10.c: 89:     OSCCONbits.SCS = 1;
+[; ;lab10.c: 89:     OSCCONbits.IRCF1 = 1;
+[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
+"90
+[; ;lab10.c: 90:     OSCCONbits.IRCF0 = 0;
+[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
+"91
+[; ;lab10.c: 91:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"92
-[; ;lab10.c: 92:     TXSTAbits.BRGH = 1;
+"94
+[; ;lab10.c: 94:     TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"93
-[; ;lab10.c: 93:     BAUDCTLbits.BRG16 = 1;
-[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
 "95
-[; ;lab10.c: 95:     TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"96
-[; ;lab10.c: 96:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;lab10.c: 95:     BAUDCTLbits.BRG16 = 1;
+[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
 "97
-[; ;lab10.c: 97:     RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;lab10.c: 97:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+"98
+[; ;lab10.c: 98:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
 "99
-[; ;lab10.c: 99:     TXSTAbits.TXEN = 1;
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;lab10.c: 99:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 "101
-[; ;lab10.c: 101:     RCSTAbits.RX9 = 0;
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;lab10.c: 101:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "103
-[; ;lab10.c: 103:     SPBRG = 103;
+[; ;lab10.c: 103:     RCSTAbits.RX9 = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+"105
+[; ;lab10.c: 105:     SPBRG = 103;
 [e = _SPBRG -> -> 103 `i `uc ]
-"104
-[; ;lab10.c: 104:     SPBRGH = 0;
+"106
+[; ;lab10.c: 106:     SPBRGH = 0;
 [e = _SPBRGH -> -> 0 `i `uc ]
-"107
-[; ;lab10.c: 107:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"108
-[; ;lab10.c: 108:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 "109
-[; ;lab10.c: 109: }
+[; ;lab10.c: 109:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"110
+[; ;lab10.c: 110:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"111
+[; ;lab10.c: 111: }
 [e :UE 144 ]
 }
-"113
-[; ;lab10.c: 113: void menu(void){
+"115
+[; ;lab10.c: 115: void menu(void){
 [v _menu `(v ~T0 @X0 1 ef ]
 {
 [e :U _menu ]
 [f ]
-"114
-[; ;lab10.c: 114:      _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"115
-[; ;lab10.c: 115:      printf("\rQue accion desea ejecutar? \r");
-[e ( _printf :s 1C ]
 "116
 [; ;lab10.c: 116:      _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "117
-[; ;lab10.c: 117:      printf("\r(1) Desplegar cadena de caracteres \r");
-[e ( _printf :s 2C ]
+[; ;lab10.c: 117:      printf("\rQue accion desea ejecutar? \r");
+[e ( _printf :s 1C ]
 "118
 [; ;lab10.c: 118:      _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "119
-[; ;lab10.c: 119:      printf("(2) Cambiar PORTA \r");
-[e ( _printf :s 3C ]
+[; ;lab10.c: 119:      printf("\r(1) Desplegar cadena de caracteres \r");
+[e ( _printf :s 2C ]
 "120
 [; ;lab10.c: 120:      _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "121
-[; ;lab10.c: 121:      printf("(3) Cambiar PORTB \r");
-[e ( _printf :s 4C ]
+[; ;lab10.c: 121:      printf("(2) Cambiar PORTA \r");
+[e ( _printf :s 3C ]
 "122
-[; ;lab10.c: 122: }
+[; ;lab10.c: 122:      _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"123
+[; ;lab10.c: 123:      printf("(3) Cambiar PORTB \r");
+[e ( _printf :s 4C ]
+"127
+[; ;lab10.c: 127: }
 [e :UE 145 ]
 }
-"123
-[; ;lab10.c: 123: void putch(char data){
+"128
+[; ;lab10.c: 128: void putch(char data){
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _putch ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"124
-[; ;lab10.c: 124:     while (TXIF == 0);
+"130
+[; ;lab10.c: 130:     while (TXIF == 0);
 [e $U 147  ]
 [e :U 148 ]
 [e :U 147 ]
 [e $ == -> _TXIF `i -> 0 `i 148  ]
 [e :U 149 ]
-"125
-[; ;lab10.c: 125:     TXREG = data;
+"131
+[; ;lab10.c: 131:     TXREG = data;
 [e = _TXREG -> _data `uc ]
-"126
-[; ;lab10.c: 126: }
+"133
+[; ;lab10.c: 133: }
 [e :UE 146 ]
 }
-"127
-[; ;lab10.c: 127: void receptar(void){
+"134
+[; ;lab10.c: 134: void receptar(void){
 [v _receptar `(v ~T0 @X0 1 ef ]
 {
 [e :U _receptar ]
 [f ]
-"128
-[; ;lab10.c: 128:     while(RCIF == 0);
+"135
+[; ;lab10.c: 135:     while(RCIF == 0);
 [e $U 151  ]
 [e :U 152 ]
 [e :U 151 ]
 [e $ == -> _RCIF `i -> 0 `i 152  ]
 [e :U 153 ]
-"129
-[; ;lab10.c: 129:     char entregado = RCREG;
+"136
+[; ;lab10.c: 136:     char entregado = RCREG;
 [v _entregado `uc ~T0 @X0 1 a ]
 [e = _entregado -> _RCREG `uc ]
-"131
-[; ;lab10.c: 131:     if (entregado == '1'){
+"139
+[; ;lab10.c: 139:     if (entregado == '1'){
 [e $ ! == -> _entregado `ui -> 49 `ui 154  ]
 {
-"132
-[; ;lab10.c: 132:         _delay((unsigned long)((50)*(4000000/4000.0)));
+"140
+[; ;lab10.c: 140:         _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"133
-[; ;lab10.c: 133:         printf("\r Ya salio la primera parte. \r");
+"141
+[; ;lab10.c: 141:         printf("\r YA SALIO LA PRIMERA PARTE. \r");
 [e ( _printf :s 5C ]
-"134
-[; ;lab10.c: 134:     }
+"142
+[; ;lab10.c: 142:     }
 }
 [e :U 154 ]
-"135
-[; ;lab10.c: 135:     if (entregado == '2'){
+"143
+[; ;lab10.c: 143:     if (entregado == '2'){
 [e $ ! == -> _entregado `ui -> 50 `ui 155  ]
 {
-"136
-[; ;lab10.c: 136:         _delay((unsigned long)((50)*(4000000/4000.0)));
+"144
+[; ;lab10.c: 144:         _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"137
-[; ;lab10.c: 137:         printf("\r Por favor, ingrese un caracter. \r");
+"145
+[; ;lab10.c: 145:         printf("\r Por favor, ingrese un caracter. \r");
 [e ( _printf :s 6C ]
-"138
-[; ;lab10.c: 138:         while(RCIF == 0);
+"147
+[; ;lab10.c: 147:         while(RCIF == 0);
 [e $U 156  ]
 [e :U 157 ]
 [e :U 156 ]
 [e $ == -> _RCIF `i -> 0 `i 157  ]
 [e :U 158 ]
-"139
-[; ;lab10.c: 139:         PORTA = RCREG;
+"149
+[; ;lab10.c: 149:         PORTA = RCREG;
 [e = _PORTA _RCREG ]
-"140
-[; ;lab10.c: 140:     }
+"150
+[; ;lab10.c: 150:     }
 }
 [e :U 155 ]
-"141
-[; ;lab10.c: 141:     if (entregado == '3'){
+"151
+[; ;lab10.c: 151:     if (entregado == '3'){
 [e $ ! == -> _entregado `ui -> 51 `ui 159  ]
 {
-"142
-[; ;lab10.c: 142:         _delay((unsigned long)((50)*(4000000/4000.0)));
+"152
+[; ;lab10.c: 152:         _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"143
-[; ;lab10.c: 143:         printf("\r Por favor, ingrese un caracter. \r");
+"153
+[; ;lab10.c: 153:         printf("\r Por favor, ingrese un caracter. \r");
 [e ( _printf :s 7C ]
-"144
-[; ;lab10.c: 144:         while(RCIF == 0);
+"155
+[; ;lab10.c: 155:         while(RCIF == 0);
 [e $U 160  ]
 [e :U 161 ]
 [e :U 160 ]
 [e $ == -> _RCIF `i -> 0 `i 161  ]
 [e :U 162 ]
-"145
-[; ;lab10.c: 145:         PORTB = RCREG;
+"157
+[; ;lab10.c: 157:         PORTB = RCREG;
 [e = _PORTB _RCREG ]
-"146
-[; ;lab10.c: 146:     }
+"158
+[; ;lab10.c: 158:     }
 }
 [e :U 159 ]
-"147
-[; ;lab10.c: 147: }
+"159
+[; ;lab10.c: 159: }
 [e :UE 150 ]
 }
 [p f _printf 8388608 ]
@@ -655,4 +655,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 1C 13 81 117 101 32 97 99 99 105 111 110 32 100 101 115 101 97 32 101 106 101 99 117 116 97 114 63 32 13 0 ]
 [a 6C 13 32 80 111 114 32 102 97 118 111 114 44 32 105 110 103 114 101 115 101 32 117 110 32 99 97 114 97 99 116 101 114 46 32 13 0 ]
 [a 7C 13 32 80 111 114 32 102 97 118 111 114 44 32 105 110 103 114 101 115 101 32 117 110 32 99 97 114 97 99 116 101 114 46 32 13 0 ]
-[a 5C 13 32 89 97 32 115 97 108 105 111 32 108 97 32 112 114 105 109 101 114 97 32 112 97 114 116 101 46 32 13 0 ]
+[a 5C 13 32 89 65 32 83 65 76 73 79 32 76 65 32 80 82 73 77 69 82 65 32 80 65 82 84 69 46 32 13 0 ]

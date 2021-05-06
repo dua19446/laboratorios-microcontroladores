@@ -7,7 +7,7 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include <stdio.h>
+#include <stdio.h>// Libreria para poder usar printf junto a la funcion putch.
 
 //------------------------------------------------------------------------------
 //                         BITS DE CONFIGURACION
@@ -48,11 +48,12 @@
 //------------------------------------------------------------------------------
 //                          PROTOTIPOS FUNCIONES 
 //------------------------------------------------------------------------------
-void setup(void);
+void setup(void); 
 void menu(void);
 void putch(char data);
 void receptar(void);
 
+// Se establece la funcion de interrupcion
 void __interrupt() isr(void){
 
 }
@@ -64,8 +65,9 @@ void main(void) {
     
     while (1) // Se implemta el loop
     {
-        menu();
-        receptar();
+        menu(); // Se llama a la funcion menu para desplegar el menu de opciones
+        receptar();// Se llama a funcion para determinar que hace cada opcion 
+                   // del menu establecido 
     }            
 }
 //------------------------------------------------------------------------------
@@ -89,18 +91,18 @@ void setup(void){
     OSCCONbits.SCS = 1;
 
     //Configuracion TX y RX 
-    TXSTAbits.BRGH = 1;
-    BAUDCTLbits.BRG16 = 1;
+    TXSTAbits.BRGH = 1;  // Para alta velocidad.
+    BAUDCTLbits.BRG16 = 1; // Se usan los 16 bits
     
-    TXSTAbits.SYNC = 0;
-    RCSTAbits.SPEN = 1;
-    RCSTAbits.CREN = 1;
+    TXSTAbits.SYNC = 0; // transmision asincrona
+    RCSTAbits.SPEN = 1; // Se enciende el modulo 
+    RCSTAbits.CREN = 1; // Se abilita la recepcion 
     
-    TXSTAbits.TXEN = 1;
+    TXSTAbits.TXEN = 1; // Se abilita la transmision 
     
-    RCSTAbits.RX9 = 0;
+    RCSTAbits.RX9 = 0; // Se determina que no se quieren 9 bits
     
-    SPBRG = 103; //BAUD RATE de 600
+    SPBRG = 103; //BAUD RATE de 9600
     SPBRGH = 0;
     
     // configuracion de interrupciones 
@@ -119,29 +121,39 @@ void menu(void){
      printf("(2) Cambiar PORTA \r");
      __delay_ms(50);
      printf("(3) Cambiar PORTB \r");
+     // Se despliegan, en filas de caracteres, las opciones del menu establecido
+     // usando prinf que llama automaticamante a la funcion putch para que sea 
+     // transmitido con un delay de 50 ms.
 }
-void putch(char data){
-    while (TXIF == 0);
-    TXREG = data;
+void putch(char data){//Se transmite la cadena de caracteres a esta funcion 
+                      // por el printf
+    while (TXIF == 0);// Se espera algo que haya que transmitir
+    TXREG = data;// lo que hay en data se pasa al registro de transmision para 
+                 // para que se depliegue en la terminal virtual.
 }
 void receptar(void){
-    while(RCIF == 0);
-    char entregado = RCREG;
+    while(RCIF == 0); //Se espera algo que recibir (CARACTER).
+    char entregado = RCREG;//Se crea un variable local que equivale al registro 
+                           // de recepcion para usarlo en las condicionales if.
     
-    if (entregado == '1'){
+    if (entregado == '1'){//si la opcion que se recibe es 1 se hace lo siguiente
         __delay_ms(50);
-        printf("\r Ya salio la primera parte. \r");
+        printf("\r YA SALIO LA PRIMERA PARTE. \r");//Se despliega la fila de
+    }                                              //caracteres.
+    if (entregado == '2'){//si la opcion que se recibe es 2 se hace lo siguiente
+        __delay_ms(50);
+        printf("\r Por favor, ingrese un caracter. \r");//Se despliega la fila
+                                                        //de caracteres.
+        while(RCIF == 0);//Se espera algo que recibir (CARACTER)elegido por 
+                         // el usuario.
+        PORTA = RCREG;// El caracter que se recibe se transmitira al puerto A.
     }
-    if (entregado == '2'){
+    if (entregado == '3'){//si la opcion que se recibe es 3 se hace lo siguiente
         __delay_ms(50);
-        printf("\r Por favor, ingrese un caracter. \r");
-        while(RCIF == 0);
-        PORTA = RCREG;
-    }
-    if (entregado == '3'){
-        __delay_ms(50);
-        printf("\r Por favor, ingrese un caracter. \r");
-        while(RCIF == 0);
-        PORTB = RCREG;
+        printf("\r Por favor, ingrese un caracter. \r");//Se despliega la fila
+                                                        //de caracteres.
+        while(RCIF == 0);//Se espera algo que recibir (CARACTER)elegido por 
+                         // el usuario.
+        PORTB = RCREG;// El caracter que se recibe se transmitira al puerto B.
     }
 }

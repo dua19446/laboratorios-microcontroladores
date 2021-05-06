@@ -2765,6 +2765,7 @@ void menu(void);
 void putch(char data);
 void receptar(void);
 
+
 void __attribute__((picinterrupt(("")))) isr(void){
 
 }
@@ -2778,6 +2779,7 @@ void main(void) {
     {
         menu();
         receptar();
+
     }
 }
 
@@ -2831,29 +2833,39 @@ void menu(void){
      printf("(2) Cambiar PORTA \r");
      _delay((unsigned long)((50)*(4000000/4000.0)));
      printf("(3) Cambiar PORTB \r");
+
+
+
 }
 void putch(char data){
+
     while (TXIF == 0);
     TXREG = data;
+
 }
 void receptar(void){
     while(RCIF == 0);
     char entregado = RCREG;
 
+
     if (entregado == '1'){
         _delay((unsigned long)((50)*(4000000/4000.0)));
-        printf("\r Ya salio la primera parte. \r");
+        printf("\r YA SALIO LA PRIMERA PARTE. \r");
     }
     if (entregado == '2'){
         _delay((unsigned long)((50)*(4000000/4000.0)));
         printf("\r Por favor, ingrese un caracter. \r");
+
         while(RCIF == 0);
+
         PORTA = RCREG;
     }
     if (entregado == '3'){
         _delay((unsigned long)((50)*(4000000/4000.0)));
         printf("\r Por favor, ingrese un caracter. \r");
+
         while(RCIF == 0);
+
         PORTB = RCREG;
     }
 }
