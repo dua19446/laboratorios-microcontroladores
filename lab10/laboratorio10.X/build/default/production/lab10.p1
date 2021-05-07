@@ -545,11 +545,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 145 ]
 }
 "128
-[; ;lab10.c: 128: void putch(char data){
+[; ;lab10.c: 128: void putch(char info){
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _putch ]
-[v _data `uc ~T0 @X0 1 r1 ]
+[v _info `uc ~T0 @X0 1 r1 ]
 [f ]
 "130
 [; ;lab10.c: 130:     while (TXIF == 0);
@@ -559,8 +559,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ == -> _TXIF `i -> 0 `i 148  ]
 [e :U 149 ]
 "131
-[; ;lab10.c: 131:     TXREG = data;
-[e = _TXREG -> _data `uc ]
+[; ;lab10.c: 131:     TXREG = info;
+[e = _TXREG -> _info `uc ]
 "133
 [; ;lab10.c: 133: }
 [e :UE 146 ]

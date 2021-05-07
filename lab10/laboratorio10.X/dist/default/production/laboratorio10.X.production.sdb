@@ -172,9 +172,9 @@
 "128 C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 [v _putch putch `(v  1 e 1 0 ]
 {
-[v putch@data data `uc  1 a 1 wreg ]
-[v putch@data data `uc  1 a 1 wreg ]
-[v putch@data data `uc  1 a 1 2 ]
+[v putch@info info `uc  1 a 1 wreg ]
+[v putch@info info `uc  1 a 1 wreg ]
+[v putch@info info `uc  1 a 1 2 ]
 "133
 } 0
 "57

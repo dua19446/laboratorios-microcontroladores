@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\duart\AppData\Local\Temp\smmg.o
+$C:\Users\duart\AppData\Local\Temp\s5ms.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -74,11 +74,11 @@ STRING 1CD-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\laboratorio10.X.production.o
-F cinit CODE >679:C:\Users\duart\AppData\Local\Temp\smmg.s
-F cinit CODE >682:C:\Users\duart\AppData\Local\Temp\smmg.s
-F cinit CODE >688:C:\Users\duart\AppData\Local\Temp\smmg.s
-F cinit CODE >690:C:\Users\duart\AppData\Local\Temp\smmg.s
-10 cinit CODE >691:C:\Users\duart\AppData\Local\Temp\smmg.s
+F cinit CODE >679:C:\Users\duart\AppData\Local\Temp\s5ms.s
+F cinit CODE >682:C:\Users\duart\AppData\Local\Temp\s5ms.s
+F cinit CODE >688:C:\Users\duart\AppData\Local\Temp\s5ms.s
+F cinit CODE >690:C:\Users\duart\AppData\Local\Temp\s5ms.s
+10 cinit CODE >691:C:\Users\duart\AppData\Local\Temp\s5ms.s
 4 intentry CODE >57:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 1C6 text6 CODE >57:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
 1C6 text6 CODE >59:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microcontroladores\lab10\laboratorio10.X\lab10.c
@@ -159,7 +159,7 @@ FC text2 CODE >147:C:\Users\duart\OneDrive\Documentos\GitHub\laboratorios-microc
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
-putch@data 72 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
+putch@info 72 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
 __Hspace_0 1CD 0 ABS 0 - -
 __Hspace_1 7A 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
@@ -169,22 +169,22 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _RCIF 65 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\smmg.o
+___sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\s5ms.o
 _main 352 0 CODE 0 maintext dist/default/production\laboratorio10.X.production.o
 _menu 244 0 CODE 0 text3 dist/default/production\laboratorio10.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
-start 18 0 CODE 0 init C:\Users\duart\AppData\Local\Temp\smmg.o
+start 18 0 CODE 0 init C:\Users\duart\AppData\Local\Temp\s5ms.o
 __size_of_main 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __size_of_menu 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 printf@c 75 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
 printf@f 76 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\smmg.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\smmg.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\smmg.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\smmg.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\smmg.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\smmg.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s5ms.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s5ms.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s5ms.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s5ms.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s5ms.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\duart\AppData\Local\Temp\s5ms.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -192,15 +192,15 @@ __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ?_printf 70 0 COMMON 1 cstackCOMMON dist/default/production\laboratorio10.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\smmg.o
-___stacklo 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\smmg.o
+___stackhi 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\s5ms.o
+___stacklo 0 0 ABS 0 - C:\Users\duart\AppData\Local\Temp\s5ms.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __size_of_putch 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\laboratorio10.X.production.o
 _SPBRGH 9A 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __end_of_printf 352 0 CODE 0 text4 dist/default/production\laboratorio10.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\smmg.o
+___int_sp 0 0 STACK 2 stack C:\Users\duart\AppData\Local\Temp\s5ms.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -245,7 +245,7 @@ __end_of_isr 39A 0 CODE 0 text6 dist/default/production\laboratorio10.X.producti
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 26 0 STRING 0 strings dist/default/production\laboratorio10.X.production.o
 __size_of_receptar 0 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\duart\AppData\Local\Temp\smmg.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\duart\AppData\Local\Temp\s5ms.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\laboratorio10.X.production.o
 __pmaintext 352 0 CODE 0 maintext dist/default/production\laboratorio10.X.production.o
 __Lcommon 0 0 ABS 0 common -

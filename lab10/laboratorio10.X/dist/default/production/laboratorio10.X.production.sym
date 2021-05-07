@@ -37,7 +37,6 @@ __size_of_receptar 0 0 ABS 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
 _receptar C8 0 CODE 0
-putch@data 72 0 COMMON 1
 __end_of_putch 1C6 0 CODE 0
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
@@ -61,6 +60,7 @@ ___stackhi 0 0 ABS 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
 _printf 18A 0 CODE 0
+putch@info 72 0 COMMON 1
 saved_w 7E 0 ABS 0
 __Hinit C 0 CODE 0
 __Linit C 0 CODE 0
@@ -152,7 +152,7 @@ strings 26 18F STRING 26 0
 text2 190 399 CODE 190 0
 %locals
 dist/default/production\laboratorio10.X.production.o
-C:\Users\duart\AppData\Local\Temp\smmg.s
+C:\Users\duart\AppData\Local\Temp\s5ms.s
 679 F 0 CODE 0
 682 F 0 CODE 0
 688 F 0 CODE 0

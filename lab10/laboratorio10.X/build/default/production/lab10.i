@@ -2837,10 +2837,10 @@ void menu(void){
 
 
 }
-void putch(char data){
+void putch(char info){
 
     while (TXIF == 0);
-    TXREG = data;
+    TXREG = info;
 
 }
 void receptar(void){

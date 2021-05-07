@@ -125,10 +125,10 @@ void menu(void){
      // usando prinf que llama automaticamante a la funcion putch para que sea 
      // transmitido con un delay de 50 ms.
 }
-void putch(char data){//Se transmite la cadena de caracteres a esta funcion 
+void putch(char info){//Se transmite la cadena de caracteres a esta funcion 
                       // por el printf
     while (TXIF == 0);// Se espera algo que haya que transmitir
-    TXREG = data;// lo que hay en data se pasa al registro de transmision para 
+    TXREG = info;// lo que hay en data se pasa al registro de transmision para 
                  // para que se depliegue en la terminal virtual.
 }
 void receptar(void){
@@ -139,7 +139,7 @@ void receptar(void){
     if (entregado == '1'){//si la opcion que se recibe es 1 se hace lo siguiente
         __delay_ms(50);
         printf("\r YA SALIO LA PRIMERA PARTE. \r");//Se despliega la fila de
-    }                                              //caracteres.
+    }                                             //caracteres.
     if (entregado == '2'){//si la opcion que se recibe es 2 se hace lo siguiente
         __delay_ms(50);
         printf("\r Por favor, ingrese un caracter. \r");//Se despliega la fila

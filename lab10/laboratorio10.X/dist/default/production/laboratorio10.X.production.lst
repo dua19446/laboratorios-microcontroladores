@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu May 06 11:53:25 2021
+                                                                                               Thu May 06 22:36:36 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -478,7 +478,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    464  0072                     ??_putch:	
    465                           ; 1 bytes @ 0x2
    466                           
-   467  0072                     putch@data:	
+   467  0072                     putch@info:	
    468                           ; 1 bytes @ 0x2
    469                           
    470                           
@@ -1115,9 +1115,9 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1092 ;; Defined at:
   1093 ;;		line 128 in file "lab10.c"
   1094 ;; Parameters:    Size  Location     Type
-  1095 ;;  data            1    wreg     unsigned char 
+  1095 ;;  info            1    wreg     unsigned char 
   1096 ;; Auto vars:     Size  Location     Type
-  1097 ;;  data            1    2[COMMON] unsigned char 
+  1097 ;;  info            1    2[COMMON] unsigned char 
   1098 ;; Return value:  Size  Location     Type
   1099 ;;                  1    wreg      void 
   1100 ;; Registers used:
@@ -1147,8 +1147,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1124                           
   1125                           ;incstack = 0
   1126                           ; Regs used in _putch: [wreg]
-  1127                           ;putch@data stored from wreg
-  1128  01BC  00F2               	movwf	putch@data
+  1127                           ;putch@info stored from wreg
+  1128  01BC  00F2               	movwf	putch@info
   1129  01BD                     l686:
   1130  01BD                     l66:	
   1131                           ;lab10.c: 130:     while (TXIF == 0);
@@ -1163,8 +1163,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1140  01C3                     u10:
   1141  01C3                     l688:
   1142                           
-  1143                           ;lab10.c: 131:     TXREG = data;
-  1144  01C3  0872               	movf	putch@data,w
+  1143                           ;lab10.c: 131:     TXREG = info;
+  1144  01C3  0872               	movf	putch@info,w
   1145  01C4  0099               	movwf	25	;volatile
   1146  01C5                     l69:
   1147  01C5  0008               	return
@@ -1415,7 +1415,7 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu May 06 11:53:25 2021
+Symbol Table                                                                                   Thu May 06 22:36:36 2021
 
                       pc 0002                       l60 0189                       l63 015E  
                      l72 00C8                       l81 0119                       l66 01BD  
@@ -1471,7 +1471,7 @@ __end_of__initialization 000F           __pcstackCOMMON 0070            __end_of
               ___latbits 0002        __size_of_receptar 005A                __pstrings 0013  
          __size_of_setup 002B           __size_of_putch 000A        interrupt_function 0004  
             __stringbase 0018       __end_of__stringtab 0019            __size_of_main 0013  
-          __size_of_menu 003D                 _receptar 00C8                putch@data 0072  
+          __size_of_menu 003D                 _receptar 00C8                putch@info 0072  
              _INTCONbits 000B                 intlevel1 0000                stringcode 0013  
              _OSCCONbits 008F                 printf@ap 0074                 stringdir 0013  
                stringtab 0013  
